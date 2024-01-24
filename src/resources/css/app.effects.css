@@ -1,0 +1,40 @@
+.navigate .navigate-list a.btn:hover{
+    transition: 0.6s;
+    background-color: #977585!important;
+    color: #dad1d4!important;
+}
+button.btn:hover{
+    transition: 0.6s;
+    background-color: #dad1d4!important;
+    color: #977585!important;
+}
+button.btn:hover svg,
+button.btn span:hover{
+    transition: 0.6s;
+    color: #977585!important;
+}
+button.end:hover{
+    color: rgb(221, 61, 61)!important;;
+}
+a:hover{
+    transition: 0.6s;
+    color: #75646C;
+}
+a.btn:hover{
+    transition: 0.6s;
+    background-color: #dad1d4;
+    color: #977585!important;
+}
+button.btn-del:hover{
+    transition: 0.6s;
+    background-color: rgb(240, 215, 215)!important;
+    color: rgba(210, 54, 54, 1)!important;
+}
+a.geo:hover svg{
+    transition: 0.6s;
+    fill: #977585;
+}
+span.play:hover{
+    transition: 0.6s;
+    opacity: 1;
+}

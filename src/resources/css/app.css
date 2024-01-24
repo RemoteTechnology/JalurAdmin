@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #fff;
+}
+html,
+body{
+    height: 100%;
+}
+ul li{
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+strong,
+span,
+.text{
+    color: #75646C;
+
+}
+a{
+    color: #977585;
+    text-decoration: none;
+}
+svg{
+    width: 42%;
+    fill: rgb(151 117 133);
+}
+#app{
+    min-height: 100%;
+    background-color: #fff;
+}
+
+.navigate{
+    color: #977585!important;
+    background-color: #977585;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}
+.navigate-list{
+    background-color: #dad1d4;
+    height: 80%;
+}
+.navigate-list .btn{
+    background-color: #F6F6F6;
+    color: #977585;
+}
+.navigate .navigate-list a.active{
+    background-color: #dad1d4!important;
+    color: #977585!important;
+}
+.navigate img{
+    height: 8em;
+}
+
+/* SHADOW */
+.shadow-bottom{
+    -webkit-box-shadow: -1px 17px 15px -3px rgba(34, 60, 80, 0.27);
+    -moz-box-shadow: -1px 17px 15px -3px rgba(34, 60, 80, 0.27);
+    box-shadow: -2px 11px 10px -7px #223c5045;
+}
+/* END SHADOW */
+
+button.btn,
+a.btn{
+    background-color: #977585;
+    color: #F6F6F6!important;
+}
+button.btn span{
+    color: #F6F6F6!important;
+}
+button.btn svg{
+    fill: #F6F6F6;
+}
+button.end{
+    margin-left: 5em;
+    border: none!important;
+    background: none!important;
+}
+#content{
+    position: absolute;
+    right: 0;
+}
+.card{
+    background-color: #F6F6F6;
+}
+.bg{
+    background-color: #977585;
+}
+
+.h-64{
+    height: 6.4em;
+}
+
+.p-right {
+    position: relative;
+    right: 1em;
+}
+.btn-del{
+    background-color: rgba(210, 54, 54, 1)!important;
+}
+/* SIZEDS */
+.w-22{
+    width: 22%;
+}
+.w-45{
+    width: 45%;
+}
+/* END */
+#weks .bg-table{
+    height: max-content;
+}
+.h-first{
+    height: fit-content;
+}
+
+#schedule-menu svg{
+    width: 2em;
+}
+.flex-8{
+    width: 14.3%;
+    height: 15em;
+}
+.br-0{
+    border-radius: 0%;
+}
+a.geo svg{
+    width: 1.5em;
+    fill: #fff;
+}
+span.play{
+    position: relative;
+    top: -9.4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    width: 100%;
+    height: 9.5em;
+}
+.pointer{
+    cursor: pointer;
+}
+.h45{
+    height: 45em!important;
+}
+#alert-form{
+    position: absolute;
+    top: 15%;
+    width: 30%;
+    left: 68%;
+    z-index: 99999;
+}
+.text-table-description{
+    word-break: break-all;
+}
+label b{
+    color: rgb(225, 67, 67);
+}
