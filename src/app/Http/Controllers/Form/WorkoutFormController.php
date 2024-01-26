@@ -38,13 +38,13 @@ class WorkoutFormController extends Controller
     public function create(Request $request_files, WorkoutCreateRequest $request)
     {
         $workout = $request->validated();
-        $this->_workoutService->create($workout, $request_files->file('images'));
+        $this->_workoutService->create($workout, $request_files["image"] ? $request_files->file('image') : null);
         return back()->with("success","Данные добавлены успешно!");
     }
     public function update(WorkoutUpdateRequest $request, Request $request_files)
     {
         $workout = $request->validated();
-        $this->_workoutService->update($workout, $request_files->file('images'));
+        $this->_workoutService->update($workout, $request_files["image"] ? $request_files->file('image') : null);
         return back()->with("success","Данные успешно обновлены!");
     }
     public function delete(WorkoutDeleteRequest $request)

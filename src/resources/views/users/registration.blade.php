@@ -6,7 +6,7 @@
             @include('layouts.top-navbar')
             <div class="container">
                 <div class="mt-5 mb-5">
-                    <h3 class="text-center">Добавить клиента</h3>
+                    <h3 class="text-center">Добавить Пользователя</h3>
                 </div>
                 <div class="d-flex justify-content-between mb-2">
                     <a href="{{ route('user.index') }}" class="btn">Назад</a>
@@ -131,24 +131,26 @@
                         <section id="human_client" style="display: block">
                             <div class="mb-3">
                                 <label class="form-label">
-                                    Укажите параметры <b>*</b>
+                                    Укажите параметры:
                                     @error('weight') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                                     @error('height') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                                 </label>
                                 <div class="row">
                                     <div class="col-6">
+                                        <label for="" class="form-label">Ширина <b>*</b></label>
                                         <input type="text"
                                             class="form-control"
                                             name="weight"
-                                            placeholder="Ширь"
+                                            placeholder="80"
                                             value="{{ old('weight') }}"
                                             @error('weight') is-invalid @enderror>
                                     </div>
                                     <div class="col-6">
+                                        <label for="" class="form-label">Высота <b>*</b></label>
                                         <input type="text"
                                             class="form-control"
                                             name="height"
-                                            placeholder="Высь"
+                                            placeholder="175"
                                             value="{{ old('height') }}"
                                             @error('height') is-invalid @enderror>
                                     </div>

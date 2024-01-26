@@ -6,7 +6,7 @@
             ["title" => "Глемпинг", "url" => route('glamping.index'), "active" => $title == "Глемпинг" ? true : false],
             ["title" => "Тренировки", "url" => route('workout.index'), "active" => $title == "Тренировки" ? true : false],
             ["title" => "История покупок", "url" => route('billing.index'), "active" => $title == "История покупок" ? true : false],
-            ["title" => "Аналитика", "url" => route('user.index'), "active" => $title == "Пользователи" ? true : false],
+            ["title" => "Пользователи", "url" => route('user.index'), "active" => $title == "Пользователи" ? true : false],
         ];
     @endphp
     <div class="col-lg-3 navigate">

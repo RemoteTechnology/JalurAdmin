@@ -6,7 +6,7 @@
             @include('layouts.top-navbar')
             <div class="container">
                 <div class="mt-5 mb-5">
-                    <h3 class="text-center">Клиенты</h3>
+                    <h3 class="text-center">Пользователи</h3>
                 </div>
                 <div class="d-flex justify-content-end mb-2">
                     <button type="button" class="btn p-right" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Фильтр</button>
@@ -129,7 +129,7 @@
                                     <td>Высота: {{ $user->height }}<br>
                                         Широта: {{ $user->weight }}</td>
                                     <td>{{ $user->gender }}</td>
-                                    <td>30000 р</td>
+                                    <td></td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>
                                         <a href="{{ route('user.info', ["id" => $user->id]) }}" class="btn w-100 mb-1">Редактировать</a>
@@ -159,10 +159,11 @@
                                             </div>
                                             </div>
                                         </div>
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="id" value="#">
-                                            <button class="btn w-100">Напомнить о уплате</a>
-                                        </form>
+{{--                                        <form action="#" method="post">--}}
+{{--                                            <input type="hidden" name="id" value="#">--}}
+{{--                                            <button class="btn w-100">Напомнить о уплате</button>--}}
+{{--                                        </form>--}}
+                                        <button class="btn w-100">Напомнить о уплате</button>
                                     </td>
                                 </tr>
                             @endforeach
