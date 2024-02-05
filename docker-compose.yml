@@ -2,8 +2,7 @@ version: "3.8"
 services:
   server:
     ports:
-      - 7256:80
-      - ${VITE_PORT:-5172}:${VITE_PORT:-5173}
+      - 80:80
     restart: always
     build:
       context: docker
@@ -14,7 +13,7 @@ services:
   # TODO: Сделать автоматическое резервное копирование БД в конце каждого дня по UTC 0+
   db:
     ports:
-      - 5431:5432
+      - 5432:5432
     restart: always
     build:
       context: docker

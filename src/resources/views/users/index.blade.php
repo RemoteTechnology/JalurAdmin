@@ -115,7 +115,7 @@
                             <th scope="col">Возраст</th>
                             <th scope="col">Параметры</th>
                             <th scope="col">Пол</th>
-                            <th scope="col">Баланс</th>
+                            <th scope="col">Количество занятий</th>
                             <th scope="col">Дата регистрации</th>
                             <th scope="col">Действие</th>
                         </tr>
@@ -129,7 +129,15 @@
                                     <td>Высота: {{ $user->height }}<br>
                                         Широта: {{ $user->weight }}</td>
                                     <td>{{ $user->gender }}</td>
-                                    <td></td>
+                                    <td>
+                                        @php  $count = 0; @endphp
+                                        @foreach($records as $record)
+                                            @if($user->id == $record->user_id)
+                                                @php $count++; @endphp
+                                            @endif
+                                        @endforeach
+                                        <span>{{ $count }} на текущий момент</span>
+                                    </td>
                                     <td>{{ $user->created_at }}</td>
                                     <td>
                                         <a href="{{ route('user.info', ["id" => $user->id]) }}" class="btn w-100 mb-1">Редактировать</a>

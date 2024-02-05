@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\HallService;
+use App\Http\Services\RecordService;
 use App\Http\Services\UserService;
 use App\Http\Services\UserTargetService;
 
@@ -11,15 +12,18 @@ class UserController extends Controller
     protected UserService $_userService;
     protected HallService $_hallService;
     protected UserTargetService $_userTargetService;
+    protected RecordService $_recordService;
     public function __construct(
         UserService $userService,
         HallService $hallService,
-        UserTargetService $userTargetService
+        UserTargetService $userTargetService,
+        RecordService $recordService,
     )
     {
         $this->_userService = $userService;
         $this->_hallService = $hallService;
         $this->_userTargetService = $userTargetService;
+        $this->_recordService = $recordService;
     }
     public function index()
     {
@@ -29,7 +33,8 @@ class UserController extends Controller
                 "title"         => "Пользователи",
                 "users"         => session()->get('users'),
                 "halls"         => $this->_hallService->all(),
-                "targets"       => $this->_userTargetService->all()
+                "targets"       => $this->_userTargetService->all(),
+                "records"       => $this->_recordService->all()
             ]);
         }
         if (session()->get('schedules'))
