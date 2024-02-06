@@ -26,7 +26,7 @@ class UserFormController extends Controller
     public function registration(Request $request_files, UserCreateRequest $request)
     {
         $user = $request->validated();
-        $user['birth_date'] = str_split($user['birth_date'])[0];
+        $user['birth_date'] = $user['birth_date'];
         $this->_userService->create($user, $request_files["image"] ? $request_files->file('image') : null);
         return redirect()
             ->route("user.index")
@@ -56,7 +56,7 @@ class UserFormController extends Controller
     public function update(Request $request_files, UserUpdateRequest $request)
     {
         $user = $request->validated();
-        $user['birth_date'] = str_split($user['birth_date'])[0];
+        $user['birth_date'] = $user['birth_date'];
         try
         {
             if ($this->_userService->update(
