@@ -32,6 +32,18 @@
                                 @error('phone') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
+                            <label for="emailInput" class="form-label">
+                                Введите адрес электронной почты
+                                @error('email') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                            </label>
+                            <input type="email"
+                                   class="form-control"
+                                   name="email"
+                                   id="emailInput"
+                                   value="{{ $user->birth_date }}"
+                                   @error('email') is-invalid @enderror>
+                        </div>
+                        <div class="mb-3">
                             <label for="firstNameInput"
                                 class="form-label">
                                     Введите имя <b>*</b>
@@ -83,22 +95,19 @@
                                 @error('age') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
+                            <label for="birthDateInput" class="form-label">
+                                Укажите дату рождения
+                                @error('birth_date') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                            </label>
+                            <input type="date"
+                                   class="form-control"
+                                   name="birth_date"
+                                   id="birthDateInput"
+                                   value="{{ $user->birth_date }}"
+                                   @error('birth_date') is-invalid @enderror>
+                        </div>
+                        <div class="mb-3">
                             <div class="row">
-                                {{-- <div class="col-4">
-                                    <label class="form-label">Укажите пол</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" value="Мужчина" id="flexRadioDefault1" @if ($user->gender == 'Мужчина') checked @endif>
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Мужчина
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="Женщина" @if ($user->gender == 'Женщина') checked @endif>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Женщина
-                                        </label>
-                                    </div>
-                                </div> --}}
                                 <div class="col-4">
                                     <label class="form-label">
                                         Укажите пол <b>*</b>

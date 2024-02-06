@@ -38,7 +38,13 @@ class WorkoutFormController extends Controller
     public function create(Request $request_files, WorkoutCreateRequest $request)
     {
         $workout = $request->validated();
-        $this->_workoutService->create($workout, $request_files["image"] ? $request_files->file('image') : null);
+        try {
+            $this->_workoutService->create($workout, $request_files["image"] ? $request_files->file('image') : null);
+        }
+        catch (\TypeError)
+        {
+            return $request_files["image"] ? back()->with("error","Ошибка добавления данных!") : back()->with("error","Укажите изображение<br>Это поле обязательно!");
+        }
         return back()->with("success","Данные добавлены успешно!");
     }
     public function update(WorkoutUpdateRequest $request, Request $request_files)

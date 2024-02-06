@@ -22,6 +22,7 @@ class User extends Authenticatable
         'last_name',
         'middle_name',
         'age',
+        'birth_date',
         'role',
         'gender',
         'image',
@@ -29,6 +30,7 @@ class User extends Authenticatable
         'height',
         'size_cloth',
         'phone',
+        'email',
         'code',
         'password_admin',
     ];

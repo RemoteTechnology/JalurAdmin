@@ -171,7 +171,7 @@
 {{--                                            <input type="hidden" name="id" value="#">--}}
 {{--                                            <button class="btn w-100">Напомнить о уплате</button>--}}
 {{--                                        </form>--}}
-                                        <button class="btn w-100">Напомнить о уплате</button>
+                                        <button class="btn w-100">Напомнить об уплате</button>
                                     </td>
                                 </tr>
                             @endforeach
