@@ -5,8 +5,8 @@
         <div id="content" class="col-12 bg h-100 d-flex justify-content-center align-items-center">
             @include('layouts.top-navbar')
             <div class="container">
-                <div class="col-5 mx-auto card p-5">
-                    <div class="mt-2 col-3 mx-auto">
+                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10 mx-auto card p-5">
+                    <div class="mt-2 col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-5 col-5 mx-auto">
                         <img
                             src="{{ asset('/storage/images/jalur_logo.jpg') }}"
                             alt="logo JALUR"
@@ -32,9 +32,22 @@
                                 value="{{ old('phone') }}"
                                 @error('phone') is-invalid @enderror>
                         </div>
+                        <div class="mb-3">
+                            <label for="emailInput"
+                                   class="form-label">
+                                Введите адрес электронной почты
+                                @error('email') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                            </label>
+                            <input type="email"
+                                   class="form-control"
+                                   name="email"
+                                   id="emailInput"
+                                   value="{{ old('email') }}"
+                                   @error('email') is-invalid @enderror>
+                        </div>
                         <div class="d-flex justify-content-between w-100">
-                            <div class="col-4">
-                                <a href="{{ route('user.login') }}">У есть пароль?</a>
+                            <div class="col-xxl-4 col-xl-6">
+                                <a href="{{ route('user.login') }}">Есть пароль?</a>
                             </div>
                             <button type="submit" class="btn">Создать</button>
                         </div>

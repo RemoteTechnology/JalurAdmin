@@ -10,6 +10,7 @@ use App\Http\Requests\User\UserResetToPasswordRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\Http\Services\UserFilterService;
 use App\Http\Services\UserService;
+use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +26,7 @@ class UserFormController extends Controller
     public function registration(Request $request_files, UserCreateRequest $request)
     {
         $user = $request->validated();
+        $user['birth_date'] = str_split($user['birth_date'])[0];
         $this->_userService->create($user, $request_files["image"] ? $request_files->file('image') : null);
         return redirect()
             ->route("user.index")
@@ -54,17 +56,25 @@ class UserFormController extends Controller
     public function update(Request $request_files, UserUpdateRequest $request)
     {
         $user = $request->validated();
-        if ($this->_userService->update(
-                $this->_userService->findById($user["id"]),
-                $user,
-                $request_files["image"] ? $request_files->file('image') : null
-        ))
+        $user['birth_date'] = str_split($user['birth_date'])[0];
+        try
         {
-            return back()->with("success"," Данные пользователя успешно обновлены!");
+            if ($this->_userService->update(
+                    $this->_userService->findById($user["id"]),
+                    $user,
+                    $request_files["image"] ? $request_files->file('image') : null
+            ))
+            {
+                return back()->with("success"," Данные пользователя успешно обновлены!");
+            }
+            else
+            {
+                return back()>with("error","Ошибка обновления данных!");
+            }
         }
-        else
+        catch (UniqueConstraintViolationException)
         {
-            return back()>with("error","Ошибка обновления данных!");
+            return back()>with("error","Номер телефона уже используется!");
         }
     }
     public function filter(UserFilterRequest $request)

@@ -9,7 +9,7 @@
             ["title" => "Пользователи", "url" => route('user.index'), "active" => $title == "Пользователи" ? true : false],
         ];
     @endphp
-    <div class="col-lg-3 navigate">
+    <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 d-xxl-block d-xl-block d-lg-block d-md-block d-sm-none d-none navigate">
         <div class="container mt-5 mb-5">
             <a href="{{ route('home') }}">
                 <div class="row">

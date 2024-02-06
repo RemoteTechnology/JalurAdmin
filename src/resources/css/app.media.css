@@ -1,0 +1,10 @@
+@media(max-width: 576px) {
+    .p-5{
+        padding: 1em!important;
+    }
+}
+@media(max-width: 1669px) {
+    .w-25{
+        width: 60%!important;
+    }
+}

@@ -2,7 +2,7 @@
 
 @section('content')
     @auth
-        <div id="content" class="col-lg-9">
+        <div id="content" class="col-xxl-10 col-xl-9 col-lg-9 col-md-8 col-12">
             @include('layouts.top-navbar')
             <div class="container">
                 <div class="mt-5 mb-4">

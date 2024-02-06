@@ -8,9 +8,15 @@ use \Illuminate\Http\UploadedFile;
 
 class WorkoutService implements WorkoutServiceInterface
 {
-    public function create(array $workout, UploadedFile $fileLists): Workout
+    public function create(array $workout, UploadedFile|null $fileLists): Workout
     {
-        $file = $fileLists->store('uploads', 'public');
+        try {
+            $file = $fileLists->store('uploads', 'public');
+        }
+        catch (\TypeError)
+        {
+            $file = null;
+        }
         $model = new Workout();
         $model->name = $workout["name"];
         $model->description = $workout["description"];
@@ -27,9 +33,15 @@ class WorkoutService implements WorkoutServiceInterface
     {
         return Workout::all();
     }
-    public function update(array $workout, UploadedFile $fileLists): Workout
+    public function update(array $workout, UploadedFile|null $fileLists): Workout
     {
-        $file = $fileLists->store('uploads', 'public');
+        try {
+            $file = $fileLists->store('uploads', 'public');
+        }
+        catch (\TypeError)
+        {
+            $file = null;
+        }
         $model = $this->show($workout["id"]);
         $model->name = $workout["name"];
         $model->description = $workout["description"];

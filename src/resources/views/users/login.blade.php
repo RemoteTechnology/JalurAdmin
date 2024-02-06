@@ -5,8 +5,8 @@
         <div id="content" class="col-12 bg h-100 d-flex justify-content-center align-items-center">
             @include('layouts.top-navbar')
             <div class="container">
-                <div class="col-5 mx-auto card p-5">
-                    <div class="mt-2 col-3 mx-auto">
+                <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10 mx-auto card p-5">
+                    <div class="mt-2 col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-5 col-5 mx-auto">
                         <img
                             src="{{ asset('/storage/images/jalur_logo.jpg') }}"
                             alt="logo JALUR"
@@ -47,7 +47,7 @@
                                 @error('password_admin') is-invalid @enderror>
                         </div>
                         <div class="d-flex justify-content-between w-100">
-                            <div class="col-4">
+                            <div class="col-xxl-4 col-xl-6 col-8">
                                 <a href="{{ route('user.reset') }}">У вас нет пароля?</a>
                             </div>
                             <button type="submit" class="btn">Войти</button>

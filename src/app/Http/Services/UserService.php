@@ -33,6 +33,7 @@ class UserService implements UserServiceInterface
         $model->last_name =             $user["last_name"];
         $model->middle_name =           key_exists("middle_name", $user) ? $user["middle_name"] : null;
         $model->age =                   key_exists("age", $user) ? $user["age"] : null;
+        $model->birth_date =            key_exists("birth_date", $user) ? $user["birth_date"] : null;
         $model->role =                  key_exists("role", $user) && $user["role"] != "Клиент" ? $user["role"] : "Клиент";
         $model->gender =                $user["gender"];
         $model->image =                 $request_files ? $request_files->store('uploads', 'public') : $request_files;
@@ -41,6 +42,7 @@ class UserService implements UserServiceInterface
         $model->height =                key_exists("height", $user) ? $user["height"] : null;
         $model->size_cloth =            key_exists("size_cloth", $user) ? $user["size_cloth"] : null;
         $model->phone =                 $user["phone"];
+        $model->email =                 key_exists("email", $user) ? $user["email"] : null;
 
         if ($mode == "web" && key_exists("role", $user) && $user["role"] == "Администратор")
         {
@@ -109,18 +111,20 @@ class UserService implements UserServiceInterface
     }
     public function update(User $user, array $request, UploadedFile|null $request_files=null): ?User
     {
-        $user->first_name = !is_null($request["first_name"]) ? $request["first_name"] : $user->first_name;
-        $user->last_name = !is_null($request["last_name"]) ? $request["last_name"] : $user->last_name;
-        $user->middle_name = !is_null($request["middle_name"]) ? $request["middle_name"] : $user->middle_name;
-        $user->age = !is_null($request["age"]) ? $request["age"] : $user->age;
-        $user->role = !is_null($request["role"]) ? $request["role"] : $user->role;
-        $user->gender = !is_null($request["gender"]) ? $request["gender"] : $user->gender;
-        $user->image = $request_files ? $request_files->store('uploads', 'public') : $user->image;
-        $user->weight = !is_null($request["weight"]) ? $request["weight"] : $user->weight;
-        $user->height = !is_null($request["height"]) ? $request["height"] : $user->height;
-        $user->size_cloth = !is_null($request["size_cloth"]) ? $request["size_cloth"] : $user->size_cloth;
-        $user->description = !is_null($request["description"]) ? $request["description"] : $user->description;
-        $user->phone = !is_null($request["phone"]) ? $request["phone"] : $user->phone;
+        $user->first_name       = !is_null($request["first_name"]) ? $request["first_name"] : $user->first_name;
+        $user->last_name        = !is_null($request["last_name"]) ? $request["last_name"] : $user->last_name;
+        $user->middle_name      = !is_null($request["middle_name"]) ? $request["middle_name"] : $user->middle_name;
+        $user->age              = !is_null($request["age"]) ? $request["age"] : $user->age;
+        $user->birth_date       = !is_null($request["birth_date"]) ? $request["birth_date"] : $user->birth_date;
+        $user->role             = !is_null($request["role"]) ? $request["role"] : $user->role;
+        $user->gender           = !is_null($request["gender"]) ? $request["gender"] : $user->gender;
+        $user->image            = $request_files ? $request_files->store('uploads', 'public') : $user->image;
+        $user->weight           = !is_null($request["weight"]) ? $request["weight"] : $user->weight;
+        $user->height           = !is_null($request["height"]) ? $request["height"] : $user->height;
+        $user->size_cloth       = !is_null($request["size_cloth"]) ? $request["size_cloth"] : $user->size_cloth;
+        $user->description      = !is_null($request["description"]) ? $request["description"] : $user->description;
+        $user->phone            = !is_null($request["phone"]) ? $request["phone"] : $user->phone;
+        $user->email            = !is_null($request["email"]) ? $request["email"] : $user->email;
         $user->save();
         return $user;
     }

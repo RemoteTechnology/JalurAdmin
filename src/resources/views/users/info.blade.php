@@ -96,14 +96,22 @@
                         </div>
                         <div class="mb-3">
                             <label for="birthDateInput" class="form-label">
+<<<<<<< HEAD
                                 Укажите дату рождения
+=======
+                                Дата рождения
+>>>>>>> 1e4ff48d77f85eaa3b989ed4268b405f6d5d558e
                                 @error('birth_date') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <input type="date"
                                    class="form-control"
                                    name="birth_date"
                                    id="birthDateInput"
+<<<<<<< HEAD
                                    value="{{ $user->birth_date }}"
+=======
+                                   value="{{ old('birth_date') }}"
+>>>>>>> 1e4ff48d77f85eaa3b989ed4268b405f6d5d558e
                                    @error('birth_date') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
