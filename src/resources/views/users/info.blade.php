@@ -148,9 +148,11 @@
                                         id="roleSelection"
                                         aria-label="Default select example"
                                         @error('gender') is-invalid @enderror>
-                                            <option value="Клиент" @if ($user->role == 'Клиент') selected @endif>Клиент</option>
-                                            <option value="Тренер" @if ($user->role == 'Тренер') selected @endif>Тренер</option>
-                                            <option value="Администратор" @if ($user->role == 'Администратор') selected @endif>Администратор</option>
+                                            <option value="Клиент">Клиент</option>
+                                            <option value="Тренер">Тренер</option>
+                                            <option value="Администратор">Администратор</option>
+                                            <option value="Руководитель">Руководитель</option>
+                                            <option value="Клиент-менеджер">Клиент-менеджер</option>
                                     </select>
                                 </div>
                             </div>

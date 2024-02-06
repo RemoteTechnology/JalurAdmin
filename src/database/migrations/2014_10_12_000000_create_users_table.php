@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('middle_name')->nullable();
             $table->integer('age')->nullable();
             $table->date('birth_date')->nullable();
-            $table->enum('role', ['Администратор', 'Клиент', 'Тренер']);
+            $table->enum('role', ['Администратор', 'Клиент', 'Тренер', 'Руководитель', 'Клиент-менеджер']);
             $table->enum('gender', ['Мужчина', 'Женщина']);
             $table->string('image')->nullable();
             $table->text('description')->nullable();

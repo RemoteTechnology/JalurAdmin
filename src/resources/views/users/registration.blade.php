@@ -149,6 +149,8 @@
                                             <option value="Клиент">Клиент</option>
                                             <option value="Тренер">Тренер</option>
                                             <option value="Администратор">Администратор</option>
+                                            <option value="Руководитель">Руководитель</option>
+                                            <option value="Клиент-менеджер">Клиент-менеджер</option>
                                     </select>
                                 </div>
                             </div>
