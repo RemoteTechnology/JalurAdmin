@@ -43,14 +43,16 @@ class UserController extends Controller
                 "title"         => "Пользователи",
                 "users"         => session()->get('schedules'),
                 "halls"         => $this->_hallService->all(),
-                "targets"       => $this->_userTargetService->all()
+                "targets"       => $this->_userTargetService->all(),
+                "records"       => []
             ]);
         }
         return view("users.index", [
             "title"         => "Пользователи",
             "users"         => $this->_userService->findByRole(),
             "halls"         => $this->_hallService->all(),
-            "targets"       => $this->_userTargetService->all()
+            "targets"       => $this->_userTargetService->all(),
+            "records"       => []
         ]);
     }
 

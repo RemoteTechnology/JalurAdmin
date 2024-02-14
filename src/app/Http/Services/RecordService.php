@@ -35,7 +35,7 @@ class RecordService implements RecordServiceInterface
     {
         if (!is_null($user_id))
         {
-            return Record::where('user_id', '=', $user_id);
+            return Record::where('user_id', '=', $user_id)->get();
         }
         return Record::all();
     }
