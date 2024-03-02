@@ -39,7 +39,7 @@ class WorkoutFormController extends Controller
     {
         $workout = $request->validated();
         try {
-            $this->_workoutService->create($workout, $request_files["image"] ? $request_files->file('image') : null);
+            $this->_workoutService->create($workout, $request_files["images"] ? $request_files->file('images') : null);
         }
         catch (\TypeError)
         {

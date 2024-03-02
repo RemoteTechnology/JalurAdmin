@@ -25,7 +25,7 @@ class WorkoutService implements WorkoutServiceInterface
         $model->save();
         return $model;
     }
-    public function show(int $id): Workout
+    public function show(int $id): Workout|null
     {
         return Workout::find($id);
     }

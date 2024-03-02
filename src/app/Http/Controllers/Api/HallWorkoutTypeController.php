@@ -18,7 +18,7 @@ class HallWorkoutTypeController extends Controller
     {
         return WorkoutTypeResource::collection($this->_typeWorkoutService->all());
     }
-    public function show(int $id)
+    public function show($id)
     {
         return new WorkoutTypeResource($this->_typeWorkoutService->show($id));
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Http\Resources\Hall\WorkoutTypeResource;
 use App\Http\Services\Contracts\TypeWorkoutServiceInterface;
 use App\Models\TypeWorkout;
 use Illuminate\Database\Eloquent\Collection;
