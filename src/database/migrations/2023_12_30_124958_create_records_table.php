@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
+            $table->uuid('contract')->unique();
             $table->integer('user_id');
             $table->integer('schedule_id');
+            $table->integer('total_training')->default(1);
+            $table->integer('remaining_training');
             $table->timestamps();
 
             $table->foreign('user_id')

@@ -23,8 +23,11 @@ class RecordUpdateRequest extends FormRequest
     {
         return [
             'id'                    => ['required'],
+            'contract'              => ['required'],
             'user_id'               => ['required'],
             'schedule_id'           => ['required'],
+            'total_training'        => ['required'],
+            'remaining_training'    => ['required'],
         ];
     }
 

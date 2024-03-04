@@ -15,7 +15,10 @@ class Record extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'contract',
         'user_id',
         'schedule_id',
+        'total_training',
+        'remaining_training',
     ];
 }
