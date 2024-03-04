@@ -10,11 +10,18 @@ class GlampingService implements GlampingServiceInterface
 {
     public function create(array $glamping, UploadedFile $fileLists): Glamping
     {
-        $file = $fileLists->store('uploads', 'public');
+        try {
+            $file = $fileLists->store('uploads', 'public');
+        }
+        catch (\TypeError)
+        {
+            $file = null;
+        }
+
         $model = new Glamping();
         $model->name = $glamping['name'];
         $model->description = $glamping['description'];
-        $model->images = "[{\"name\": \"{$file}\"}]";
+        $model->image = $file;
         $model->date = $glamping['date'];
         $model->time = $glamping['time'];
         $model->save();

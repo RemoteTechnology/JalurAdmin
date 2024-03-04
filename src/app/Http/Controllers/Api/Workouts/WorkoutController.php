@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Workouts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Hall\WorkoutResource;
 use App\Http\Services\WorkoutService;
-use Illuminate\Http\Request;
 
-class HallWorkoutController extends Controller
+class WorkoutController extends Controller
 {
     private WorkoutService $_workoutService;
     public function __construct(WorkoutService $workoutService)

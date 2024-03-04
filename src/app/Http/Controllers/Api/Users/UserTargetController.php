@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\Target\UserTargetCreateRequest;
 use App\Http\Requests\User\Target\UserTargetUpdateRequest;
 use App\Http\Services\UserTargetService;
-use Illuminate\Http\Request;
 
 class UserTargetController extends Controller
 {

@@ -70,12 +70,8 @@
                                     Изображение
                                     @error('images') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
-                            @php
-                                $img = json_decode($glamping->images, true);
-
-                            @endphp
                             <section class="mb-2">
-                                <img src="{{ asset('/storage/' . $img[0]['name']) }}" class="img-fluid" alt="{{ $glamping->name }}">
+                                <img src="{{ asset('/storage/' . $glamping->images) }}" class="img-fluid" alt="{{ $glamping->name }}">
                             </section>
                             <input type="file"
                                 class="form-control"

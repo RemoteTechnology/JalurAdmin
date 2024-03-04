@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\HallWorkoutRecordController;
 use App\Http\Controllers\Api\HallController;
-use App\Http\Controllers\Api\HallScheduleController;
-use App\Http\Controllers\Api\HallWorkoutController;
-use App\Http\Controllers\Api\HallWorkoutTypeController;
-use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\Api\UserTargetController;
-use App\Http\Controllers\Api\BillingController;
+use App\Http\Controllers\Api\ScheduleController;
+use App\Http\Controllers\Api\Users\UserController;
+use App\Http\Controllers\Api\Users\UserTargetController;
+use App\Http\Controllers\Api\Workouts\WorkoutController;
+use App\Http\Controllers\Api\Workouts\WorkoutRecordController;
+use App\Http\Controllers\Api\Workouts\WorkoutTypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,22 +41,22 @@ Route::prefix('user')->group(function () {
 Route::prefix('hall')->group(function () {
     Route::get('/', [HallController::class, 'index'])->name('api.hall.index');
     Route::get('/show/{id}', [HallController::class, 'show'])->name('api.hall.show');
-    Route::prefix('schedule')->group(function () {
-        Route::get('/', [HallScheduleController::class, 'index'])->name('api.hall.schedule.index');
-        Route::get('/show/{id}', [HallScheduleController::class, 'show'])->name('api.hall.schedule.show');
+});
+Route::prefix('schedule')->group(function () {
+    Route::get('/', [ScheduleController::class, 'index'])->name('api.hall.schedule.index');
+    Route::get('/show/{id}', [ScheduleController::class, 'show'])->name('api.hall.schedule.show');
+});
+Route::prefix('workout')->group(function () {
+    Route::get('/', [WorkoutController::class, 'index'])->name('api.hall.workout.index');
+    Route::get('/show/{id}', [WorkoutController::class, 'show'])->name('api.hall.workout.show');
+    Route::prefix('record')->group(function () {
+        Route::post('/create', [WorkoutRecordController::class, 'create'])->name('api.hall.workout.record.create');
+        Route::get('/', [WorkoutRecordController::class, 'index'])->name('api.hall.workout.record.index');
+        Route::get('/show/{id}', [WorkoutRecordController::class, 'show'])->name('api.hall.workout.record.show');
+        Route::post('/update', [WorkoutRecordController::class, 'update'])->name('api.hall.workout.record.update');
     });
-    Route::prefix('workout')->group(function () {
-        Route::get('/', [HallWorkoutController::class, 'index'])->name('api.hall.workout.index');
-        Route::get('/show/{id}', [HallWorkoutController::class, 'show'])->name('api.hall.workout.show');
-        Route::prefix('record')->group(function () {
-            Route::post('/create', [HallWorkoutRecordController::class, 'create'])->name('api.hall.workout.record.create');
-            Route::get('/', [HallWorkoutRecordController::class, 'index'])->name('api.hall.workout.record.index');
-            Route::get('/show/{id}', [HallWorkoutRecordController::class, 'show'])->name('api.hall.workout.record.show');
-            Route::post('/update', [HallWorkoutRecordController::class, 'update'])->name('api.hall.workout.record.update');
-        });
-        Route::prefix('type')->group(function () {
-            Route::get('/', [HallWorkoutTypeController::class, 'index'])->name('api.hall.workout.type.index');
-            Route::get('/show/{id}', [HallWorkoutTypeController::class, 'show'])->name('api.hall.workout.type.show');
-        });
+    Route::prefix('type')->group(function () {
+        Route::get('/', [WorkoutTypeController::class, 'index'])->name('api.hall.workout.type.index');
+        Route::get('/show/{id}', [WorkoutTypeController::class, 'show'])->name('api.hall.workout.type.show');
     });
 });
