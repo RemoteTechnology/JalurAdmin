@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserAuthentificationMobileRequest;
 use App\Http\Requests\User\UserCreateRequest;
-use App\Http\Resources\User\UserResource;
-use App\Http\Resources\User\UserCodeResource;
 use App\Http\Resources\User\UserAuthMobileResource;
+use App\Http\Resources\User\UserCodeResource;
 use App\Http\Resources\User\UserLogoutMobileResource;
+use App\Http\Resources\User\UserResource;
 use App\Http\Services\UserService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;

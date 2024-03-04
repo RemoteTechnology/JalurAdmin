@@ -144,9 +144,9 @@
                                         <button type="button"
                                             class="btn w-100 mb-1"
                                             data-bs-toggle="modal"
-                                            data-bs-target="#exampleModalTarget">Цели</button>
+                                            data-bs-target="#exampleModalTarget-{{$user->id}}">Цели</button>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModalTarget" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModalTarget-{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -157,7 +157,9 @@
                                                     @if (count($targets) != 0)
                                                         <ul class="list-group">
                                                             @foreach ($targets as $target)
-                                                                <li class="list-group-item">{{$target->collection}}</li>
+                                                                @if($target->user_id == $user->id)
+                                                                    <li class="list-group-item">{{$target->collection}}</li>
+                                                                @endif
                                                             @endforeach
                                                         </ul>
                                                     @else

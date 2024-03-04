@@ -7,7 +7,7 @@ use App\Http\Resources\Hall\ScheduleResource;
 use App\Http\Services\ScheduleService;
 use Illuminate\Http\Request;
 
-class HallScheduleController extends Controller
+class ScheduleController extends Controller
 {
     private ScheduleService $_scheduleService;
     public function __construct(ScheduleService $scheduleService)

@@ -102,11 +102,7 @@
                                         </th>
                                         <th>{{ $glamping->name }}</th>
                                         <th>
-                                            @php
-                                                $img = json_decode($glamping->images, true);
-
-                                            @endphp
-                                            <img src="{{ asset('/storage/' . $img[0]['name']) }}" class="img-fluid" alt="{{ $glamping->name }}">
+                                            <img src="{{ asset('/storage/' . $glamping->image) }}" class="img-fluid" alt="{{ $glamping->name }}">
                                         </th>
                                         <th>{{ mb_substr($glamping->description, 0, 140) }}...</th>
                                         <th>{{ $glamping->date }} - {{ $glamping->time }}</th>

@@ -20,7 +20,7 @@ class WorkoutService implements WorkoutServiceInterface
         $model = new Workout();
         $model->name = $workout["name"];
         $model->description = $workout["description"];
-        $model->images = "[{\"name\": \"{$file}\"}]";
+        $model->image = $file;
         $model->type_workout_id = $workout["type_workout_id"];
         $model->save();
         return $model;

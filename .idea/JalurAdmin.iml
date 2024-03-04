@@ -122,6 +122,11 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/yoomoney/yookassa-sdk-php" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/yoomoney/yookassa-sdk-validator" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/zelenin/smsru" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/db-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/laravel-backup" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/laravel-package-tools" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/laravel-signal-aware-command" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/spatie/temporary-directory" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

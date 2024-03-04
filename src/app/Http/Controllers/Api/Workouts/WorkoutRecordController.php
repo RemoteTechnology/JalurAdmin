@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Workouts;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Record\RecordCreateRequest;
@@ -8,7 +8,7 @@ use App\Http\Requests\Record\RecordUpdateRequest;
 use App\Http\Resources\Hall\HallWorkoutRecordResource;
 use App\Http\Services\RecordService;
 
-class HallWorkoutRecordController extends Controller
+class WorkoutRecordController extends Controller
 {
     private RecordService $_recordService;
     public function __construct(RecordService $recordService)
