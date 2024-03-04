@@ -22,8 +22,11 @@ class RecordCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'contract'              => ['required'],
             'user_id'               => ['required'],
             'schedule_id'           => ['required'],
+            'total_training'        => ['required'],
+            'remaining_training'    => ['required'],
         ];
     }
 
