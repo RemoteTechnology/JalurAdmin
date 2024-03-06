@@ -16,9 +16,13 @@ class BillingService implements BillingServiceInterface
     {
         return Billing::all();
     }
-    public function show(int $user_id): Collection
+    public function show(int $user_id): Billing
     {
         return Billing::where('user_id', '=', $user_id);
+    }
+    public function showByRecord(int $record_id): Billing
+    {
+        return Billing::where('record_id', '=', $record_id);
     }
     public function status_back(Billing $billing): Billing
     {

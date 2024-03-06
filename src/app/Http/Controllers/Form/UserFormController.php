@@ -13,6 +13,7 @@ use App\Http\Services\UserService;
 use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserFormController extends Controller
 {
@@ -95,7 +96,6 @@ class UserFormController extends Controller
         $user = $this->_userService->findByPhone($request['phone']);
         if(!is_null($user) && $user->role == "Администратор")
         {
-            // TODO: Сделать отправку СМС
             $this->_userService->resetToPassword($user);
             return redirect()->route("user.login")->with('success', 'Пароль успешно обновлён!');
         }

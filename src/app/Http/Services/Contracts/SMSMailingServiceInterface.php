@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Services\Contracts;
-use Zelenin\SmsRu\Response\SmsStatusResponse;
+use Psr\Http\Message\ResponseInterface;
 
 interface SMSMailingServiceInterface
 {
-    public static function send(string $phone, string $text): SmsStatusResponse;
+    public function smsSend(string $phone, string $text): ResponseInterface;
 }

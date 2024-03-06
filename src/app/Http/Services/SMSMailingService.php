@@ -2,20 +2,21 @@
 
 namespace App\Http\Services;
 use App\Http\Services\Contracts\SMSMailingServiceInterface;
-use Zelenin\SmsRu\Auth\ApiIdAuth;
-use Zelenin\SmsRu\Api;
-use Zelenin\SmsRu\Entity\Sms;
-use Zelenin\SmsRu\Client\Client;
-use Zelenin\SmsRu\Response\SmsStatusResponse;
+use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 
 // https://sms.ru/php
 // https://github.com/zelenin/sms_ru
-class SMSMailingService implements SMSMailingServiceInterface
+class SMSMailingService extends Client implements SMSMailingServiceInterface
 {
-    public static function send(string $phone, string $text): SmsStatusResponse
+    private string $api_token = '';
+
+    /**
+     * @return ResponseInterface
+     */
+    public function smsSend(string $text, string $phone): ResponseInterface
     {
-        $client = new Api(new ApiIdAuth(env('SMS_RU_ID')), new Client());
-        $client->smsSend(new Sms($phone, $text));
-        return $client->smsStatus(env('SMS_RU_ID'));
+        $url = "https://sms.ru/sms/send?api_id={$this->api_token}&to[$phone]={$text}&json=1";
+        return $this->request('GET', $url);
     }
 }

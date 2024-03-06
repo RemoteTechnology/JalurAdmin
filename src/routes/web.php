@@ -57,6 +57,9 @@ Route::prefix('workout')->group(function () {
     Route::get('/', [WorkoutController::class,'index'])
         ->name('workout.index')
         ->middleware('auth');
+    Route::get('/show/{id}', [WorkoutController::class,'show'])
+        ->name('workout.show')
+        ->middleware('auth');
 });
 
 Route::prefix('hall')->group(function () {
