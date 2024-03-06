@@ -35,17 +35,13 @@ class WorkoutService implements WorkoutServiceInterface
     }
     public function update(array $workout, UploadedFile|null $fileLists): Workout
     {
-        try {
-            $file = $fileLists->store('uploads', 'public');
-        }
-        catch (\TypeError)
-        {
-            $file = null;
-        }
         $model = $this->show($workout["id"]);
         $model->name = $workout["name"];
         $model->description = $workout["description"];
-        $model->images = "[{\"name\": \"{$file}\"}]";
+        if (!is_null($fileLists))
+        {
+            $model->images = $fileLists->store('uploads', 'public');
+        }
         $model->type_workout_id = $workout["type_workout_id"];
         $model->save();
         return $model;

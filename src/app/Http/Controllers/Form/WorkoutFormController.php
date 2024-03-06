@@ -47,7 +47,7 @@ class WorkoutFormController extends Controller
         }
         return back()->with("success","Данные добавлены успешно!");
     }
-    public function update(WorkoutUpdateRequest $request, Request $request_files)
+    public function update(Request $request_files, WorkoutUpdateRequest $request)
     {
         $workout = $request->validated();
         $this->_workoutService->update($workout, $request_files["image"] ? $request_files->file('image') : null);

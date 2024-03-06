@@ -159,8 +159,7 @@
                                         <form action="{{ route('workout.form.delete') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $workout->id }}">
-                                            <!-- TODO: сделать страницу обновления тренировки -->
-                                            <a href="#" class="btn w-100 mb-2">Подробнее</a>
+                                            <a href="{{ route('workout.show', ['id' => $workout->id]) }}" class="btn w-100 mb-2">Подробнее</a>
                                             <button type="submit" class="btn btn-del w-100">Удалить</button>
                                         </form>
                                     </td>

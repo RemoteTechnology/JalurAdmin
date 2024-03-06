@@ -23,4 +23,12 @@ class WorkoutController extends Controller
             "workouts"      => $this->_workoutService->all(),
         ]);
     }
+    public  function show(int $id)
+    {
+        return view('workouts.show', [
+            'title'         => 'Тренировки',
+           'workout' => $this->_workoutService->show($id),
+           'type_workouts' => $this->_typeWorkoutService->all()
+        ]);
+    }
 }
