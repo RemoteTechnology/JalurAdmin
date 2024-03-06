@@ -10,10 +10,10 @@ services:
     volumes:
       - ./configuration/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./src:/var/www/src
-  # TODO: Сделать автоматическое резервное копирование БД в конце каждого дня по UTC 0+
   db:
     ports:
       - 5432:5432
+    hostname: 'db'
     restart: always
     build:
       context: docker
@@ -22,8 +22,8 @@ services:
       - configuration/db.env
     volumes:
       - .:/docker-entrypoint-initdb.d
+      - ./dump:/var/www/dump
       - dbdata:/var/lib/postgresql/data
-      - ./db:/var/www/db
   
   app:
     restart: always
