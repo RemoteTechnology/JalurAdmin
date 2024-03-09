@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "8bd4cbf1-abf5-4743-9beb-c1d609a0f136",
+		"name": "Workouts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19706904",
+		"_collection_link": "https://gold-satellite-925746.postman.co/workspace/JALUR_API~9f475202-1b7c-4a4a-b061-c9e37757b0cf/collection/19706904-8bd4cbf1-abf5-4743-9beb-c1d609a0f136?action=share&source=collection_link&creator=19706904"
+	},
+	"item": [
+		{
+			"name": "Type",
+			"item": [
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer 1|A6OyYF1DHBrQ0jqaOW2Ssw5SvGMOZGgZrdZfAeK41c8704f7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/workout/type/show/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"workout",
+								"type",
+								"show",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer 1|A6OyYF1DHBrQ0jqaOW2Ssw5SvGMOZGgZrdZfAeK41c8704f7",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1/api/workout/type/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"api",
+								"workout",
+								"type",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer 1|A6OyYF1DHBrQ0jqaOW2Ssw5SvGMOZGgZrdZfAeK41c8704f7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/api/workout/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"workout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer 1|A6OyYF1DHBrQ0jqaOW2Ssw5SvGMOZGgZrdZfAeK41c8704f7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/api/workout/show/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"workout",
+						"show",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
