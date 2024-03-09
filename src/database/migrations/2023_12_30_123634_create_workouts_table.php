@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('type_workout_id');
             $table->string('name');
             $table->text('description');
-            $table->jsonb('images')->nullable();
+            $table->string('image')->nullable();
             $table->foreign('type_workout_id')
                 ->references('id')
                 ->on('type_workouts');

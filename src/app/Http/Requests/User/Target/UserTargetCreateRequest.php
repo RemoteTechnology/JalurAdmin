@@ -22,12 +22,14 @@ class UserTargetCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'user_id'       => ['required'],
             'collection'    => ['required'],
         ];
     }
     public function messages(): array
     {
         return [
+            'user_id.required'              => 'Укажите ID клиента!',
             'collection.required'           => 'Укажите цели!',
         ];
     }

@@ -34,6 +34,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('records');
+//        Schema::dropIfExists('records');
+        \Illuminate\Support\Facades\DB::delete('DROP TABLE IF EXISTS records CASCADE;');
     }
 };

@@ -8,6 +8,7 @@ use App\Http\Services\ScheduleService;
 use App\Http\Services\TypeWorkoutService;
 use App\Http\Services\UserService;
 use App\Http\Services\WorkoutService;
+use App\Http\Services\WorkoutVisitionService;
 use Illuminate\Http\Request;
 use Symfony\Component\ErrorHandler\Error\FatalError;
 
@@ -19,6 +20,7 @@ class BillingHistoryController extends Controller
     private TypeWorkoutService $typeWorkoutService;
     private WorkoutService $workoutService;
     private BillingService $billingService;
+    private WorkoutVisitionService $workoutVisitionService;
     public array $userForRecords;
 
     /**
@@ -28,6 +30,7 @@ class BillingHistoryController extends Controller
      * @param TypeWorkoutService $typeWorkoutService
      * @param WorkoutService $workoutService
      * @param BillingService $billingService
+     * @param WorkoutVisitionService $workoutVisitionService
      * @return void
      */
     public function __construct(
@@ -36,7 +39,8 @@ class BillingHistoryController extends Controller
         ScheduleService $scheduleService,
         TypeWorkoutService $typeWorkoutService,
         WorkoutService $workoutService,
-        BillingService $billingService
+        BillingService $billingService,
+        WorkoutVisitionService $workoutVisitionService
     )
     {
         $this->recordService = $recordService;
@@ -45,6 +49,7 @@ class BillingHistoryController extends Controller
         $this->typeWorkoutService = $typeWorkoutService;
         $this->workoutService = $workoutService;
         $this->billingService = $billingService;
+        $this->workoutVisitionService = $workoutVisitionService;
         $this->userForRecords = array();
     }
     public function index()
@@ -62,7 +67,8 @@ class BillingHistoryController extends Controller
                 'workout' => $workout,
                 'schedule' => $schedule,
                 'couch' => $this->userService->show($schedule->couch_id),
-                'billing' => $this->billingService->showByRecord($record->id)
+                'billing' => $this->billingService->showByRecord($record->id),
+                'visition' => $this->workoutVisitionService->showByContract($record->contract)
             ];
         }
         echo '<pre>';

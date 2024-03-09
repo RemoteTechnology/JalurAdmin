@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('billings', function (Blueprint $table) {
             $table->id();
-            $table->integer('record_id');
+            $table->uuid('contract_id');
             $table->integer('user_id');
             $table->enum('status', ['Оплачен', 'Возврат']);
-            $table->timestamp('record_date');
             $table->jsonb('payments');
             $table->timestamps();
+            $table->foreign('contract_id')
+                ->references('contract')
+                ->on('records')
+                ->onDelete('CASCADE');
         });
     }
 

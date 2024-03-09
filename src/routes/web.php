@@ -1,20 +1,20 @@
 <?php
 
 use App\Http\Controllers\BillingHistoryController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ScheduleController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Form\GlampingFormController;
+use App\Http\Controllers\Form\HallFormController;
+use App\Http\Controllers\Form\RecordFormController;
+use App\Http\Controllers\Form\Schedules\ScheduleFormController;
+use App\Http\Controllers\Form\Schedules\ScheduleTimeFormController;
 use App\Http\Controllers\Form\UserFormController;
 use App\Http\Controllers\Form\WorkoutFormController;
-use App\Http\Controllers\WorkoutController;
-use App\Http\Controllers\HallController;
-use App\Http\Controllers\Form\HallFormController;
 use App\Http\Controllers\GlampingController;
-use App\Http\Controllers\Form\GlampingFormController;
-use App\Http\Controllers\Form\RecordFormController;
-use App\Http\Controllers\Form\ScheduleFormController;
-use App\Http\Controllers\Form\ScheduleTimeFormController;
-use App\Http\Controllers\ScheduleTimeController;
+use App\Http\Controllers\HallController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Schedules\ScheduleController;
+use App\Http\Controllers\Schedules\ScheduleTimeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WorkoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -109,7 +109,6 @@ Route::prefix('record')->group(function () {
         ->middleware('auth');
 });
 Route::prefix('billing')->group(function () {
-    // TODO: Сделать просмотр истории покупок общий и для каждого клиента
     Route::get('/', [BillingHistoryController::class,'index'])
         ->name('billing.index')
         ->middleware('auth');

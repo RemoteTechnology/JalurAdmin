@@ -5,6 +5,7 @@ use App\Http\Services\Contracts\RecordServiceInterface;
 use App\Models\Record;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Str;
 
 class RecordService implements RecordServiceInterface
 {
@@ -15,8 +16,14 @@ class RecordService implements RecordServiceInterface
     }
     public function create(array $request) : Record|null
     {
-        return Record::create($request);
-
+        $record = new Record();
+        $record->contract = Str::uuid();
+        $record->user_id = $request['user_id'];
+        $record->schedule_id = $request['schedule_id'];
+        $record->total_training = $request['total_training'];
+        $record->remaining_training = 0;
+        $record->save();
+        return $record;
     }
     public function show(int $id) : Record
     {
@@ -39,10 +46,12 @@ class RecordService implements RecordServiceInterface
         }
         return Record::all();
     }
-    public function update(Record $record, array $request) : Record
+    public function updateRemaining(Record $record, array $request) : Record
     {
         $record->user_id = $request['user_id'];
         $record->schedule_id = $request['schedule_id'];
+        $record->total_training = $request['total_training'];
+        $record->remaining_training = $request['remaining_training'];
         $record->save();
         return $record;
     }

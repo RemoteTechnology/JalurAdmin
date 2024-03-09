@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Form;
+namespace App\Http\Controllers\Form\Schedules;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Schedule\Time\ScheduleTimeCreateRequest;
 use App\Http\Requests\Schedule\Time\ScheduleTimeDeleteRequest;
 use App\Http\Services\ScheduleTimeService;
-use Illuminate\Http\Request;
 
 class ScheduleTimeFormController extends Controller
 {
