@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Form;
+namespace App\Http\Controllers\Form\Schedules;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Schedule\ScheduleCreateRequest;

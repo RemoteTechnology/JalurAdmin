@@ -8,9 +8,15 @@ use Illuminate\Database\Eloquent\Collection;
 
 class BillingService implements BillingServiceInterface
 {
-    public function create(array $request): Billing
+    public function create(string $contract_id, array $request): Billing
     {
-        return Billing::create($request);
+        $billing = new Billing();
+        $billing->contract_id = $contract_id;
+        $billing->user_id = $request['user_id'];
+        $billing->status = 'Оплачен';
+        $billing->payments = $request['payments'];
+        $billing->save();
+        return $billing;
     }
     public function all(): Collection
     {
@@ -20,9 +26,9 @@ class BillingService implements BillingServiceInterface
     {
         return Billing::where('user_id', '=', $user_id);
     }
-    public function showByRecord(int $record_id): Billing
+    public function showByRecord(string $contract_id): Billing
     {
-        return Billing::where('record_id', '=', $record_id);
+        return Billing::where('contract_id', '=', $contract_id);
     }
     public function status_back(Billing $billing): Billing
     {

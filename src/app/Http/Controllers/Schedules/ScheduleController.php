@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Schedules;
 
+use App\Http\Controllers\Controller;
 use App\Http\Services\AutoCalendarFormatterService;
 use App\Http\Services\HallService;
 use App\Http\Services\RecordService;
@@ -10,7 +11,6 @@ use App\Http\Services\ScheduleTimeService;
 use App\Http\Services\UserService;
 use App\Http\Services\WorkoutService;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {

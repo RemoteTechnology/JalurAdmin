@@ -10,5 +10,5 @@ interface RecordServiceInterface
     public function create(array $request) : Record|null;
     public function show(int $id) : Record;
     public function all(int|null $user_id=null) : Collection;
-    public function update(Record $record, array $request) : Record;
+    public function updateRemaining(Record $record, array $request) : Record;
 }

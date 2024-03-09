@@ -20,6 +20,6 @@ class ScheduleController extends Controller
     }
     public function show(int $id)
     {
-        return ScheduleResource::collection($this->_scheduleService->show($id));
+        return new ScheduleResource($this->_scheduleService->show($id));
     }
 }

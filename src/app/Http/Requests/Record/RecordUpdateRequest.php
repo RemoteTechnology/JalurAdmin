@@ -22,21 +22,22 @@ class RecordUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id'                    => ['required'],
-            'contract'              => ['required'],
-            'user_id'               => ['required'],
-            'schedule_id'           => ['required'],
-            'total_training'        => ['required'],
-            'remaining_training'    => ['required'],
+            'id'                        => ['required'],
+            'user_id'                   => ['required'],
+            'schedule_id'               => ['required'],
+            'total_training'            => ['required'],
+            'remaining_training'        => ['required'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'id.required'           => 'Укажите ID записи!',
-            'user_id.required'      => 'Укажите ID клиента!',
-            'schedule_id.required'  => 'Укажите ID расписания!',
+            'id.required'                   => 'Укажите ID клиента записи!',
+            'user_id.required'              => 'Укажите ID клиента!',
+            'schedule_id.required'          => 'Укажите ID расписания!',
+            'total_training.required'       => 'Укажите количество тренировок!', // Общее кол-во тренировок
+            'remaining_training.required'   => 'Укажите количество тренировок!', // Сколько посетил тренировок
         ];
     }
 }

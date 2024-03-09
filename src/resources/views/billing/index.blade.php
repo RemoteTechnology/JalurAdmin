@@ -33,7 +33,7 @@
                         @foreach ($records as $record)
                             <tr>
                                 <td>{{ $record['record']->created_at }}</td>
-                                <td>10/2</td>
+                                <td>{{ $record['record']->total_training }}/{{ $record['record']->remaining_training }}</td>
                                 <td>
                                     {{ $record['workout']->name }} <br />
                                     <small>({{ $record['type_workout']->name }})</small><br />

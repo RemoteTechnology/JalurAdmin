@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Schedules;
 
+use App\Http\Controllers\Controller;
 use App\Http\Services\ScheduleTimeService;
-use Illuminate\Http\Request;
 
 class ScheduleTimeController extends Controller
 {

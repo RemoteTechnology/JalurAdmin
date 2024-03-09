@@ -21,7 +21,7 @@ class UserTargetService implements UserTargetServiceInterface
     }
     public function update(UserTarget $target, array $target_collection): UserTarget
     {
-        $target->collection = $target_collection;
+        $target->collection = $target_collection["collection"];
         $target->save();
         return $target;
     }

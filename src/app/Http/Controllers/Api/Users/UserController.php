@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Users;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserAuthentificationMobileRequest;
 use App\Http\Requests\User\UserCreateRequest;
+use App\Http\Requests\User\UserUpdateRequest;
 use App\Http\Resources\User\UserAuthMobileResource;
 use App\Http\Resources\User\UserCodeResource;
 use App\Http\Resources\User\UserLogoutMobileResource;
@@ -41,12 +42,12 @@ class UserController extends Controller
             "mobile"
         ));
     }
-    public function logout(int $id): ?UserLogoutMobileResource
+    public function logout(int $id): void
     {
-        return new UserLogoutMobileResource($this->_userService->logout(
+        $this->_userService->logout(
             $this->_userService->findById($id),
             'mobile'
-        ));
+        );
     }
     public function show(int $id)
     {
@@ -57,11 +58,13 @@ class UserController extends Controller
         // return new UserResource($this->_userService->findByRole($role));
         return UserResource::collection($this->_userService->findByRole($role));
     }
-    public function update(Request $request)
+    public function update(Request $request_files, UserUpdateRequest $request)
     {
+        $request = $request->validated();
         return new UserResource($this->_userService->update(
-            $this->_userService->findById($request->id),
-            $request
+            $this->_userService->findById($request['id']),
+            $request,
+            $request_files["image"] ? $request_files->file('image') : null
         ));
     }
 }

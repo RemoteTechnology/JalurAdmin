@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->jsonb('images')->nullable();
+            $table->string('image')->nullable();
             $table->date('date');
             $table->time('time');
             $table->timestamps();
