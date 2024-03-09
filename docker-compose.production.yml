@@ -14,6 +14,7 @@ services:
   db:
     ports:
       - 5432:5432
+    hostname: 'db'
     restart: always
     build:
       context: docker
@@ -22,14 +23,18 @@ services:
       - configuration/db.env
     volumes:
       - .:/docker-entrypoint-initdb.d
+      - ./dump:/var/www/dump
       - dbdata:/var/lib/postgresql/data
   app:
     restart: always
     build:
       context: docker
       dockerfile: app.Dockerfile
+    env_file:
+      - configuration/xdebug.env
     volumes:
       - ./src:/var/www/src
+      - ./configuration/php.ini:/usr/local/etc/php/php.ini:ro
       
   composer:
     build:

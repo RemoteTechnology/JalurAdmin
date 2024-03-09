@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "bda9f17c-2a0e-4c38-b165-4b41fc638ad2",
+		"name": "Schedule",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19706904",
+		"_collection_link": "https://gold-satellite-925746.postman.co/workspace/JALUR_API~9f475202-1b7c-4a4a-b061-c9e37757b0cf/collection/19706904-bda9f17c-2a0e-4c38-b165-4b41fc638ad2?action=share&source=collection_link&creator=19706904"
+	},
+	"item": [
+		{
+			"name": "All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer 1|A6OyYF1DHBrQ0jqaOW2Ssw5SvGMOZGgZrdZfAeK41c8704f7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/api/schedule/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"schedule",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer 1|A6OyYF1DHBrQ0jqaOW2Ssw5SvGMOZGgZrdZfAeK41c8704f7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1/api/schedule/show/5",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"schedule",
+						"show",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

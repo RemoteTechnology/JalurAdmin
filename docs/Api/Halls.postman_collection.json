@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "e4fd5635-4b8c-48d0-a612-dd81ae91a282",
+		"name": "Halls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19706904",
+		"_collection_link": "https://gold-satellite-925746.postman.co/workspace/JALUR_API~9f475202-1b7c-4a4a-b061-c9e37757b0cf/collection/19706904-e4fd5635-4b8c-48d0-a612-dd81ae91a282?action=share&source=collection_link&creator=19706904"
+	},
+	"item": [
+		{
+			"name": "All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer 1|A6OyYF1DHBrQ0jqaOW2Ssw5SvGMOZGgZrdZfAeK41c8704f7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://89.104.69.88/api/hall/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"104",
+						"69",
+						"88"
+					],
+					"path": [
+						"api",
+						"hall",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://89.104.69.88/api/hall/show/2",
+					"protocol": "http",
+					"host": [
+						"89",
+						"104",
+						"69",
+						"88"
+					],
+					"path": [
+						"api",
+						"hall",
+						"show",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
