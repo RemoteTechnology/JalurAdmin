@@ -1,3 +1,4 @@
 nginx-access.log
 nginx-error.log
 .timetracker
+id_rsa.pub
