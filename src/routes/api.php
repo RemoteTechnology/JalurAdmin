@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return "Welcome in API!";
+});
 
 Route::prefix('user')->group(function () {
     Route::post('create', [UserController::class, 'create'])->name('api.user.create');

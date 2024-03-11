@@ -5,7 +5,7 @@
         <div id="content" class="col-lg-9">
             @include('layouts.top-navbar')
             <div class="container">
-                <div class="mt-5 mb-5">
+                <div class="mt-9 mb-5">
                     <h3 class="text-center"><b>{{ $glamping->name }}</b></h3>
                 </div>
                 <div class="d-flex justify-content-between mb-2">

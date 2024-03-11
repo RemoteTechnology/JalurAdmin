@@ -1,5 +1,5 @@
 @auth
-    <div class="row shadow-bottom p-2 d-block col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-12">
+    <div class="row shadow-bottom p-2 position-absolute w-100">
         <div class="d-flex justify-content-end">
             <div class="row w-25 col-sm-10 col-12">
                 <div class="col-4 d-flex justify-content-center align-items-center"></div>
