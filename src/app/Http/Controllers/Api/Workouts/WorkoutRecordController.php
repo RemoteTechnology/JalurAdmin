@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Workouts;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Record\RecoilRequest;
 use App\Http\Requests\Record\RecordCreateRequest;
 use App\Http\Requests\Record\RecordUpdateRequest;
 use App\Http\Resources\Hall\HallWorkoutRecordResource;
@@ -55,5 +56,12 @@ class WorkoutRecordController extends Controller
             $this->_recordService->show($request['id']),
             $request
         ));
+    }
+    public function recoil(RecoilRequest $request)
+    {
+        $context = $request->validated();
+        $record = $this->_recordService->show($context['id']);
+        return $this->_recordService
+            ->recoil($context, $record, $this->_billingService->showByRecord($record->contract));
     }
 }

@@ -28,7 +28,7 @@ class BillingService implements BillingServiceInterface
     }
     public function showByRecord(string $contract_id): Billing
     {
-        return Billing::where('contract_id', '=', $contract_id);
+        return Billing::where('contract_id', $contract_id)->first();
     }
     public function status_back(Billing $billing): Billing
     {
