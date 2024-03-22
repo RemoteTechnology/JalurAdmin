@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BillingHistoryController;
+use App\Http\Controllers\Form\AbonementFormController;
+use App\Http\Controllers\AbonementController;
 use App\Http\Controllers\Form\GlampingFormController;
 use App\Http\Controllers\Form\HallFormController;
 use App\Http\Controllers\Form\RecordFormController;
@@ -185,4 +187,14 @@ Route::prefix('user')->group(function () {
     Route::get('/{filter?}', [UserController::class, 'index'])
         ->name('user.index')
         ->middleware('auth');
+});
+
+Route::prefix('abonement')->group(function () {
+    Route::prefix('form')->group(function () {
+        Route::post('/create', [AbonementFormController::class, 'create'])->name('abonement.form.create');
+        Route::put('/update', [AbonementFormController::class, 'update'])->name('abonement.form.update');
+        Route::delete('/delete/{id}', [AbonementFormController::class, 'delete'])->name('abonement.form.delete');
+    });
+    Route::get('/', [AbonementController::class, 'index'])->name('abonement.index');
+    Route::get('/show/{id}', [AbonementController::class, 'show'])->name('abonement.show');
 });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AbonementController;
 use App\Http\Controllers\Api\HallController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\Users\UserController;
@@ -71,5 +72,10 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::put('/remaining', [WorkoutRecordController::class, 'updateRemaining'])->name('api.workout.record.update.remaining');
         });
         Route::post('/recoil', [WorkoutRecordController::class, 'recoil'])->name('api.workout.record.recoil');
+    });
+
+    Route::prefix('abonement')->group(function () {
+        Route::get('/', [AbonementController::class, 'all'])->name('api.abonement.index');
+        Route::get('/show/{id}', [AbonementController::class, 'show'])->name('api.abonement.show');
     });
 });
