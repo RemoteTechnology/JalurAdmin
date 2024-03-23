@@ -22,19 +22,22 @@ class AbonementUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id'    => ['required'],
-            'title' => ['required'],
-            'price' => ['required', 'numeric'],
+            'id'                => ['required'],
+            'title'             => ['required'],
+            'price'             => ['required', 'numeric'],
+            'time_of_action'    => ['required', 'numeric'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'id.required'       => 'Укажите ID абонемента!',
-            'title.required'    => 'Укажите название абонемента!',
-            'price.required'    => 'Укажите цену!',
-            'price.numeric'     => 'Ошибка типа!'
+            'id.required'               => 'Укажите ID абонемента!',
+            'title.required'            => 'Укажите название абонемента!',
+            'price.required'            => 'Укажите цену!',
+            'price.numeric'             => 'Ошибка типа!',
+            'time_of_action.required'   => 'Укажите срок действия абонемента!',
+            'time_of_action.numeric'    => 'Ошибка типа!'
         ];
     }
 }

@@ -15,6 +15,7 @@ class Abonement extends Model
      */
     protected $fillable = [
         'title',
-        'price'
+        'price',
+        'time_of_action'
     ];
 }

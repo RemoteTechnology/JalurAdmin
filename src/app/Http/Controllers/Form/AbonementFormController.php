@@ -17,20 +17,30 @@ class AbonementFormController extends Controller
     }
     public function create(AbonementCreateRequest $request)
     {
-        return $this->_abonementService->create($request->validated());
+        if ($this->_abonementService->create($request->validated()))
+        {
+            return back()->with('success', 'Абонемент создан!');
+        }
+        return back()->with('error', 'Абонемент создать не удалось!');
     }
     public function update(AbonementUpdateRequest $request)
     {
         $context = $request->validated();
-        return $this->_abonementService->update(
+        if ($this->_abonementService->update(
             $this->_abonementService->show($context['id']),
             $context
-        );
+        ))
+        {
+            return back()->with('success', 'Абонемент обновлён!');
+        }
+        return back()->with('error', 'Ошибка обновления данных!');
     }
     public function delete(int $id)
     {
-        return $this->_abonementService->delete(
-            $this->_abonementService->show($id)
-        );
+        if ($this->_abonementService->delete($this->_abonementService->show($id)))
+        {
+            return back()->with('success', 'Данные удалены!');
+        }
+        return back()->with('error', 'Не удалось удалить абонемент!');
     }
 }

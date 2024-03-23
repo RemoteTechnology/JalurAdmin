@@ -2,6 +2,7 @@
     @php
         $page_lists = [
             ["title" => "Расписание", "url" => route('schedule.index'), "active" => $title == "Расписание" ? true : false],
+            ["title" => "Абонементы", "url" => route('abonement.index'), "active" => $title == "Абонементы" ? true : false],
             ["title" => "Залы", "url" => route('hall.index'), "active" => $title == "Залы" ? true : false],
             ["title" => "Глемпинг", "url" => route('glamping.index'), "active" => $title == "Глемпинг" ? true : false],
             ["title" => "Тренировки", "url" => route('workout.index'), "active" => $title == "Тренировки" ? true : false],

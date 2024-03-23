@@ -192,8 +192,8 @@ Route::prefix('user')->group(function () {
 Route::prefix('abonement')->group(function () {
     Route::prefix('form')->group(function () {
         Route::post('/create', [AbonementFormController::class, 'create'])->name('abonement.form.create');
-        Route::put('/update', [AbonementFormController::class, 'update'])->name('abonement.form.update');
-        Route::delete('/delete/{id}', [AbonementFormController::class, 'delete'])->name('abonement.form.delete');
+        Route::post('/update', [AbonementFormController::class, 'update'])->name('abonement.form.update');
+        Route::get('/delete/{id}', [AbonementFormController::class, 'delete'])->name('abonement.form.delete');
     });
     Route::get('/', [AbonementController::class, 'index'])->name('abonement.index');
     Route::get('/show/{id}', [AbonementController::class, 'show'])->name('abonement.show');

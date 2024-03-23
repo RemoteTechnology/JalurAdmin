@@ -16,7 +16,7 @@ class AbonementService implements AbonementServiceInterface
 
     public function show(int $id): Abonement
     {
-        return Abonement::find($id)->first();
+        return Abonement::find($id);
     }
 
     public function all(): Collection
@@ -30,6 +30,7 @@ class AbonementService implements AbonementServiceInterface
         $context->price = key_exists('price', $request) &&
             !is_null($request['price']) &&
             $request['price'] > 0 ? $request['price'] : $context->price;
+        $context->time_of_action = key_exists('time_of_action', $request) ? $request['time_of_action'] : $context->time_of_action;
         $context->save();
         return $context;
     }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->unique();
             $table->integer('price');
+            $table->integer('time_of_action')->default(1);
             $table->timestamps();
         });
     }
