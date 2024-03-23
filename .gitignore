@@ -2,3 +2,4 @@ nginx-access.log
 nginx-error.log
 .timetracker
 id_rsa.pub
+dump/2024-03-23_09-02-54-jalur_db.sql
