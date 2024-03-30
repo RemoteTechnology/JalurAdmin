@@ -12,11 +12,14 @@ class WorkoutVisitionService implements WorkoutVisitionServiceInterface
     {
         foreach (explode(",", $context['visition_date']) as $concrete_date)
         {
-            $workout_visition = new Visition();
-            $workout_visition->contract_id = $contract_id;
-            $workout_visition->visition_date = $concrete_date;
-            $workout_visition->status = 'Ожидает';
-            $workout_visition->save();
+            if (strlen($concrete_date) > 0)
+            {
+                $workout_visition = new Visition();
+                $workout_visition->contract_id = $contract_id;
+                $workout_visition->visition_date = $concrete_date;
+                $workout_visition->status = 'Ожидает';
+                $workout_visition->save();
+            }
         }
         return Visition::where('contract_id', $contract_id)->get();
     }
