@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AbonementController;
 use App\Http\Controllers\Api\HallController;
 use App\Http\Controllers\Api\ScheduleController;
+use App\Http\Controllers\Api\ScheduleTimeController;
 use App\Http\Controllers\Api\Users\UserController;
 use App\Http\Controllers\Api\Users\UserTargetController;
 use App\Http\Controllers\Api\Workouts\WorkoutController;
@@ -53,6 +54,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('schedule')->group(function () {
         Route::get('/', [ScheduleController::class, 'index'])->name('api.schedule.index');
         Route::get('/show/{id}', [ScheduleController::class, 'show'])->name('api.schedule.show');
+        Route::prefix('time')->group(function () {
+            Route::get('/', [ScheduleTimeController::class, 'index'])->name('api.schedule.time.index');
+            Route::get('/show/{id}', [ScheduleTimeController::class, 'show'])->name('api.schedule.time.show');
+        });
     });
 
     Route::prefix('workout')->group(function () {
