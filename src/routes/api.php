@@ -68,7 +68,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', [WorkoutController::class, 'index'])->name('api.workout.index');
         Route::get('/show/{id}', [WorkoutController::class, 'show'])->name('api.workout.show');
     });
-
+    /* TODO: эту залупу вынести в отдельный сервис
     Route::prefix('record')->group(function () {
         Route::post('/create', [WorkoutRecordController::class, 'create'])->name('api.workout.record.create');
         Route::get('/{id?}', [WorkoutRecordController::class, 'index'])->name('api.workout.record.index');
@@ -78,7 +78,7 @@ Route::middleware('auth:sanctum')->group(function () {
         });
         Route::post('/recoil', [WorkoutRecordController::class, 'recoil'])->name('api.workout.record.recoil');
     });
-
+    */
     Route::prefix('abonement')->group(function () {
         Route::get('/', [AbonementController::class, 'all'])->name('api.abonement.index');
         Route::get('/show/{id}', [AbonementController::class, 'show'])->name('api.abonement.show');

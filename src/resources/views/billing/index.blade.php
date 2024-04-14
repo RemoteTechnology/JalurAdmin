@@ -47,7 +47,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    {{ $record['billing']->payments['amount']['value'] }}
+                                    {{ $record['record']->payments['amount']['value'] }}
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                          width="24"
                                          height="24"

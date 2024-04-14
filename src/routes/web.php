@@ -110,9 +110,9 @@ Route::prefix('record')->group(function () {
         ->name('record.form.create')
         ->middleware('auth');
 });
-Route::prefix('billing')->group(function () {
+Route::prefix('record')->group(function () {
     Route::get('/', [BillingHistoryController::class,'index'])
-        ->name('billing.index')
+        ->name('record.index')
         ->middleware('auth');
 });
 Route::prefix('schedule')->group(function () {

@@ -35,7 +35,18 @@ services:
     volumes:
       - ./src:/var/www/src
       - ./configuration/php.ini:/usr/local/etc/php/php.ini:ro
-      
+
+  record_api:
+    restart: always
+    build:
+      context: docker
+      dockerfile: record.Dockerfile
+    env_file:
+      - configuration/xdebug.env
+    volumes:
+      - ./record_api:/var/www/record_api
+      - ./configuration/php.ini:/usr/local/etc/php/php.ini:ro
+
   composer:
     build:
       context: docker
