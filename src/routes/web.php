@@ -29,9 +29,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [HomeController::class, 'index'])
-    ->name('home')
-    ->middleware('auth');
+Route::get('/', function() {
+    return phpinfo();
+});
+// Route::get('/', [HomeController::class, 'index'])
+//     ->name('home')
+//     ->middleware('auth');
 
 Route::prefix('workout')->group(function () {
     Route::prefix('form')->group(function () {
