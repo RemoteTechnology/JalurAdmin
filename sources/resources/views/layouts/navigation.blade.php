@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-xxl-4 col-xl-3 col-lg-3 col-md-12 col-sm-12">
                         <img
-                            src="{{ asset('/storage/images/jalur_logo.jpg') }}"
+                            src="{{ asset('/images/jalur_logo.jpg') }}"
                             alt="logo JALUR"
                             id="logo-img"
                             class="img-fluid rounded-circle">

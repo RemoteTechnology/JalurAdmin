@@ -20,7 +20,7 @@
                             </p>
                         </section>
                         <section class="w-50 mx-auto">
-                            <img src="{{ asset('/storage/images/jalur_logo.jpg') }}"
+                            <img src="{{ asset('/images/jalur_logo.jpg') }}"
                                 alt="Jalur"
                                 class="img-fluid rounded-3">
                             <span class="play pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">

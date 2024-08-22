@@ -8,7 +8,7 @@
                 <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10 mx-auto card p-5">
                     <div class="mt-2 col-xxl-3 col-xl-4 col-lg-4 col-md-4 col-sm-5 col-5 mx-auto">
                         <img
-                            src="{{ asset('/storage/images/jalur_logo.jpg') }}"
+                            src="{{ asset('/images/jalur_logo.jpg') }}"
                             alt="logo JALUR"
                             id="logo-img"
                             class="img-fluid rounded-circle h-64">
