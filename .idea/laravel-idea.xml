@@ -13,7 +13,6 @@
         </option>
       </LaravelCodeGeneration>
     </option>
-    <option name="frameworkFound" value="true" />
     <option name="laravelBasePath" value="src" />
     <option name="translation">
       <LaravelTranslation>
