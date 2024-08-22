@@ -1,0 +1,1 @@
+0 0 * * * docker exec -it 1f27cc30ec0e sh ./dump.sh

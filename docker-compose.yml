@@ -1,76 +1,79 @@
 version: "3.8"
 services:
-  server:
-    ports:
-      - 80:80
-      - 5000:5000
+  nginx:
+    container_name: ${NAME}_nginx
+    hostname: ${NAME}_nginx
     restart: always
+    ports:
+      - ${HTTP_PORT}:80
     build:
-      context: docker
-      dockerfile: server.Dockerfile
+      context: ${DOCKER_PATH}/nginx
+      dockerfile: Dockerfile
     volumes:
-      - ./configuration/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./configuration/record.conf:/etc/nginx/conf.d/record.conf:ro
-      - ./src:/var/www/src
-      - ./record_api:/var/www/record_api
-  db:
-    ports:
-      - 5432:5432
-    hostname: 'db'
+      - ./${DOCKER_PATH}/${HTTP_LOCAL_CONFIG_PATH}:${HTTP_CONTAINER_CONFIG_PATH}:ro
+      - ./${APP_LOCAL_PATH}:${APP_CONTAINER_PATH}
+
+  postgres:
+    container_name: ${NAME}_postgres
+    hostname: ${NAME}_postgres
     restart: always
+    ports:
+      - ${POSTGRES_PORT}:5432
     build:
-      context: docker
-      dockerfile: db.Dockerfile
-    env_file:
-      - configuration/db.env
+      context: ${DOCKER_PATH}/postgres
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_ROOT_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - .:/docker-entrypoint-initdb.d
-      - ./dump:/var/www/dump
-      - dbdata:/var/lib/postgresql/data
-  
-  app:
-    restart: always
-    build:
-      context: docker
-      dockerfile: app.Dockerfile
-    env_file:
-      - configuration/xdebug.env
-    volumes:
-      - ./src:/var/www/src
-      - ./configuration/php.ini:/usr/local/etc/php/php.ini:ro
+      - dbdata:${POSTGRES_DBDATA}
 
-  record_api:
-    restart: always
+  php-fpm:
+    container_name: ${NAME}_php-fpm
+    hostname: ${NAME}_php-fpm
+    environment:
+      docker: "true"
+    extra_hosts:
+      - ${PHP_FPM_EXTRA_HOST}
     build:
-      context: docker
-      dockerfile: record.Dockerfile
+      context: ${DOCKER_PATH}/php-fpm
+      dockerfile: Dockerfile
+      args:
+        - INSTALL_FAKETIME=false
+        - INSTALL_LOCALES_ADDITIONAL=false
+        - LOCALES_ADDITIONAL=${LOCALES_ADDITIONAL}
+        - LOCALE=${LOCALE_DEFAULT}
+        - TIMEZONE=${TIMEZONE_DEFAULT}
+        - http_proxy
+        - https_proxy
+        - no_proxy
+        - PUID=${PUID}
+        - PGID=${PGID}
     env_file:
-      - configuration/xdebug.env
+      - ${DOCKER_PATH}/php-fpm/xdebug.env
     volumes:
-      - ./record_api:/var/www/record_api
-      - ./configuration/php.ini:/usr/local/etc/php/php.ini:ro
-  
-  composer:
+      - ./${APP_LOCAL_PATH}:${APP_CONTAINER_PATH}
+      - ./${DOCKER_PATH}/php-fpm/php.ini:${PHP_FPM_CONFIG_PATH}:ro
+    depends_on:
+      - nginx
+      - postgres
+
+  node:
+    container_name: ${NAME}_node
+    hostname: ${NAME}_node
+    environment:
+      docker: "true"
     build:
-      context: docker
-      dockerfile: composer.Dockerfile
+      context: ${DOCKER_PATH}/node
+      dockerfile: Dockerfile
     volumes:
-      - ./src:/var/www/src
-  
-  view:
-    build:
-      context: docker
-      dockerfile: view.Dockerfile
-    volumes:
-      - ./src:/var/www/src
-    
-  artisan:
-    build:
-      context: docker
-      dockerfile: app.Dockerfile
-    volumes:
-      - ./src:/var/www/src
-    entrypoint: ["php", "/var/www/src/artisan"]
+      - ./${APP_LOCAL_PATH}:${APP_CONTAINER_PATH}
+    depends_on:
+      - php-fpm
+
 
 volumes:
   dbdata:
