@@ -371,7 +371,7 @@
       <excludeFolder url="file://$MODULE_DIR$/sources/vendor/yoomoney/yookassa-sdk-validator" />
       <excludeFolder url="file://$MODULE_DIR$/sources/vendor/zelenin/smsru" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.12" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
