@@ -57,7 +57,11 @@ def php(env: str, folderContainers: str) -> None:
     fileConfigName = 'php.ini'
     fileXdebugName = 'xdebug.env'
 
-    debianMirror = 'RUN echo "deb https://ftp.mpi-inf.mpg.de/mirrors/linux/debian/ bookworm main contrib non-free" > /etc/apt/sources.list && \\' if env == '1' else ''
+    debianMirror = """
+RUN echo "deb https://ftp.mpi-inf.mpg.de/mirrors/linux/debian/ bookworm main contrib non-free" > /etc/apt/sources.list && \\
+    apt-get update \\
+    """ if env == '2' else ''
+
     xdebug = """
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
