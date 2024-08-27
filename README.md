@@ -18,15 +18,22 @@
 <ul>
     <li>
         <p>
-            <span>Поднять docker:</span><br>
-            <b style="color: #222;">(sudo) docker-compose up --build -d</b>
-        </p>
+            <span>Запустить сборку окружения:</span><br/>
+            <b style="color: #222;">python3 init.py</b>
+        </p>    
     </li>
     <br />
     <li>
         <p>
             <span>Создать/настроить конфиг, как минимум надо настроить подключение к БД:</span><br>
             <b style="color: #222;">(sudo) cp .example.env .env</b><br>
+        </p>
+    </li>
+    <br />
+    <li>
+        <p>
+            <span>Поднять docker:</span><br>
+            <b style="color: #222;">(sudo) docker-compose up --build -d</b>
         </p>
     </li>
     <br />
