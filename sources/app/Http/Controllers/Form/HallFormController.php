@@ -42,7 +42,7 @@ class HallFormController extends Controller
         $hall = $request->validated();
         if ($this->_hallService->delete($hall["id"]))
         {
-            return back()->with("success", "Данные успешно удалены!");
+            return redirect()->route('hall.index')->with("success", "Данные успешно удалены!");
         }
         return back()->with("error", $hall);
     }

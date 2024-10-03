@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Schedule\ScheduleCreateRequest;
 use App\Http\Requests\Schedule\ScheduleUpdateRequest;
 use App\Http\Services\ScheduleService;
+use Illuminate\Http\Request;
 
 class ScheduleFormController extends Controller
 {
@@ -32,11 +33,11 @@ class ScheduleFormController extends Controller
         }
         return back()->with('success', 'Данные обновить не удалось!');
     }
-    public function delete(int $id)
+    public function delete(Request $request)
     {
-        if ($this->_scheduleService->delete($id))
+        if ($this->_scheduleService->delete($request->id))
         {
-            return back()->with('success', 'Данные удалены!');
+            return redirect()->route('schedule.index')->with('success', 'Данные удалены!');
         }
         return back()->with('success', 'Данные удалить не удалось!');
     }

@@ -4,7 +4,7 @@
     @auth
         <div id="content" class="col-lg-9">
             @include('layouts.top-navbar')
-            <div class="container mb-9 mt-5">
+            <div class="container mb-9 mt-12">
                 <div class="row">
                     <div class="col-2">
                         <p>Дата: <strong>{{ mb_substr($schedule->date, 0, 10) }}</strong></p>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <a href="{{ route('schedule.update', ['hall_id' => $hall->id, 'schedule_id' => $schedule->id]) }}" class="btn w-100 mb-2">Изменить</a>
-                        <form action="#" method="post">
+                        <form action="{{ route('schedule.form.delete') }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $schedule->id }}">
                             <button type="submit" class="btn btn-del w-100">Удалить</button>
@@ -101,9 +101,9 @@
                                         <td>{{ $client->age }}</td>
                                         <td>{{ $client->gender }}</td>
                                         <td>
-                                            <form action="#" method="post">
+                                            <form action="{{ route('record.form.delete') }}" method="post">
                                                 @csrf
-                                                <input type="hidden" name="record_id" value="">
+                                                <input type="hidden" name="user_id" value="{{ $client->id }}">
                                                 <button type="submit" class="btn btn-del">Удалить</button>
                                             </form>
                                         </td>

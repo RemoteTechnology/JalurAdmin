@@ -110,6 +110,9 @@ Route::prefix('record')->group(function () {
     Route::post('/create', [RecordFormController::class, 'create'])
         ->name('record.form.create')
         ->middleware('auth');
+    Route::post('/delete', [RecordFormController::class, 'delete'])
+        ->name('record.form.delete')
+        ->middleware('auth');
 });
 Route::prefix('record')->group(function () {
     Route::get('/', [BillingHistoryController::class,'index'])

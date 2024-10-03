@@ -56,6 +56,7 @@ class UserUpdateRequest extends FormRequest
 
             'phone.required'                => 'Укажите фамилию!',
             'phone.max'                     => 'Номер телефона не может быть меньше :max символов!',
+            
         ];
     }
 }

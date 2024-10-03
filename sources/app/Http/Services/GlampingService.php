@@ -40,7 +40,7 @@ class GlampingService implements GlampingServiceInterface
         $model = $this->show($glamping["id"]);
         $model->name = $glamping['name'];
         $model->description = $glamping['description'];
-        $model->images = $fileLists ? "[{\"name\": " . $fileLists->store('uploads', 'public') . "\"}]" : $model->images;
+        $model->image = $fileLists ? "[{\"name\": \"" . $fileLists->store('uploads', 'public') . "\"}]" : $model->image;
         $model->date = $glamping['date'];
         $model->time = $glamping['time'];
         $model->save();

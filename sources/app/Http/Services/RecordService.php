@@ -22,7 +22,7 @@ class RecordService implements RecordServiceInterface
         $record->contract = Str::uuid();
         $record->user_id = $request['user_id'];
         $record->schedule_id = $request['schedule_id'];
-        $record->total_training = $request['total_training'];
+        $record->total_training = $request['total_training'] ?? 1;
         $record->remaining_training = 0;
         $record->save();
         return $record;
@@ -110,5 +110,13 @@ class RecordService implements RecordServiceInterface
         }
         $billing->payments = $billing->payments[strlen($billing->payments) - 1] . ', ' . $request['payments'] . ']';
         return ["message" => "Запись отменена!"];
+    }
+
+    public function delete(Record $record) {
+        return $record->delete();
+    }
+
+    public function getUser(int $user_id) {
+        return Record::where(['user_id' => $user_id])->first();
     }
 }

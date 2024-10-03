@@ -90,7 +90,7 @@
                             <tbody>
                                 @foreach ($glampings as $glamping)
                                     <tr>
-                                        <th>
+                                        <th class="w-11">
                                             @php
                                                 $date_now = new DateTime();
                                             @endphp
@@ -102,7 +102,14 @@
                                         </th>
                                         <th>{{ $glamping->name }}</th>
                                         <th>
-                                            <img src="{{ asset('/storage/' . $glamping->image) }}" class="img-fluid" alt="{{ $glamping->name }}">
+                                            <div style="
+                                                background-image: url('{{ asset('/storage/' . $glamping->image) }}');
+                                                height: 6em;
+                                                background-position: center;
+                                                background-size: contain;
+                                                background-repeat: no-repeat;
+                                            "></div>
+                                            <!-- <img src="{{ asset('/storage/' . $glamping->image) }}" class="img-fluid" alt="{{ $glamping->name }}"> -->
                                         </th>
                                         <th>{{ mb_substr($glamping->description, 0, 140) }}...</th>
                                         <th>{{ $glamping->date }} - {{ $glamping->time }}</th>

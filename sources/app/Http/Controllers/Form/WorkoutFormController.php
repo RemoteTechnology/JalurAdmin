@@ -12,6 +12,7 @@ use App\Http\Services\TypeWorkoutService;
 use App\Http\Services\WorkoutService;
 use Illuminate\Http\Request;
 use \Illuminate\Http\UploadedFile;
+use Illuminate\Database\QueryException;
 
 class WorkoutFormController extends Controller
 {
@@ -31,14 +32,23 @@ class WorkoutFormController extends Controller
 
     public function type_delete(WorkoytTypeDeleteRequest $request)
     {
-        $workout_type = $request->validated();
-        $this->_typeWorkoutService->delete($workout_type["id"]);
-        return back()->with("success","Тип тренировки успешно удалён!");
+        try {
+            $workout_type = $request->validated();
+            $this->_typeWorkoutService->delete($workout_type["id"]);
+            return back()->with("success","Тип тренировки успешно удалён!");
+        } catch(QueryException) {
+            return back()->with("error","Тип тренировки удалить не удалось, возможно есть присвоеные типы тренировкам!");
+        }
+        
+        
     }
     public function create(Request $request_files, WorkoutCreateRequest $request)
     {
         $workout = $request->validated();
         try {
+            if (empty($request_files['images'])) {
+                return back()->with("error","Выберите файл!");
+            }
             $this->_workoutService->create($workout, $request_files["images"] ? $request_files->file('images') : null);
         }
         catch (\TypeError)

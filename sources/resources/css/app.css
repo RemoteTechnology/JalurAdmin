@@ -101,6 +101,9 @@ button.end{
 .mt-9{
     margin-top: 9em !important;
 }
+.mt-12{
+    margin-top: 12em;
+}
 .p-right {
     position: relative;
     right: 1em;
@@ -109,6 +112,9 @@ button.end{
     background-color: rgba(210, 54, 54, 1)!important;
 }
 /* SIZEDS */
+.w-11{
+    width: 11.4%;
+}
 .w-22{
     width: 22%;
 }

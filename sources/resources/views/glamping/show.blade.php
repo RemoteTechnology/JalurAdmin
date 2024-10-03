@@ -68,16 +68,16 @@
                             <label for="#imagesInput"
                                 class="form-label">
                                     Изображение
-                                    @error('images') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                    @error('image') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <section class="mb-2">
-                                <img src="{{ asset('/storage/' . $glamping->images) }}" class="img-fluid" alt="{{ $glamping->name }}">
+                                <img src="{{ asset('/storage/' . $glamping->image) }}" class="img-fluid" alt="{{ $glamping->name }}">
                             </section>
                             <input type="file"
                                 class="form-control"
-                                name="images"
+                                name="image"
                                 id="imagesInput"
-                                @error('images') is-invalid @enderror>
+                                @error('image') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
                             <label for="#descriptionInput"

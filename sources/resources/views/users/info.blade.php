@@ -40,7 +40,7 @@
                                    class="form-control"
                                    name="email"
                                    id="emailInput"
-                                   value="{{ $user->birth_date }}"
+                                   value="{{ $user->email }}"
                                    @error('email') is-invalid @enderror>
                         </div>
                         <div class="mb-3">

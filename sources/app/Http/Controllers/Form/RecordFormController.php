@@ -23,4 +23,10 @@ class RecordFormController extends Controller
         }
         return back();
     }
+
+    public function delete(Request $requests) {
+        $record = $this->_recordService->getUser($requests->user_id);
+        $this->_recordService->delete($record);
+        return back()->with("success", "Данные успешно удалены!");
+    }
 }
