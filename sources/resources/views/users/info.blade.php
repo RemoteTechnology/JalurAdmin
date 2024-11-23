@@ -14,22 +14,22 @@
                 </div>
                 <div class="col-6 mb-5 mx-auto">
                     <form action="{{ route('user.form.update') }}"
-                        method="POST"
-                        enctype="multipart/form-data">
+                          method="POST"
+                          enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{ $user->id }}">
                         <div class="mb-3">
                             <label for="phoneInput"
-                                class="form-label">
-                                    Введите номер телефона <b>*</b>
-                                    @error('phone') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                   class="form-label">
+                                Введите номер телефона <b>*</b>
+                                @error('phone') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <input type="tel"
-                                class="form-control"
-                                name="phone"
-                                id="phoneInput"
-                                value="{{ $user->phone }}"
-                                @error('phone') is-invalid @enderror>
+                                   class="form-control"
+                                   name="phone"
+                                   id="phoneInput"
+                                   value="{{ $user->phone }}"
+                                   @error('phone') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
                             <label for="emailInput" class="form-label">
@@ -45,42 +45,42 @@
                         </div>
                         <div class="mb-3">
                             <label for="firstNameInput"
-                                class="form-label">
-                                    Введите имя <b>*</b>
-                                    @error('first_name') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                   class="form-label">
+                                Введите имя <b>*</b>
+                                @error('first_name') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <input type="text"
-                                class="form-control"
-                                name="first_name"
-                                id="firstNameInput"
-                                value="{{ $user->first_name }}"
-                                @error('first_name') is-invalid @enderror>
+                                   class="form-control"
+                                   name="first_name"
+                                   id="firstNameInput"
+                                   value="{{ $user->first_name }}"
+                                   @error('first_name') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
                             <label for="lastNameInput"
-                                class="form-label">
-                                    Введите фамилию <b>*</b>
-                                    @error('last_name') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                   class="form-label">
+                                Введите фамилию <b>*</b>
+                                @error('last_name') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <input type="text"
-                                class="form-control"
-                                name="last_name"
-                                id="lastNameInput"
-                                value="{{ $user->last_name }}"
-                                @error('last_name') is-invalid @enderror>
+                                   class="form-control"
+                                   name="last_name"
+                                   id="lastNameInput"
+                                   value="{{ $user->last_name }}"
+                                   @error('last_name') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
                             <label for="middleNameInput"
-                                class="form-label">
-                                    Введите отчество
-                                    @error('last_name') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                   class="form-label">
+                                Введите отчество
+                                @error('last_name') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <input type="text"
-                                class="form-control"
-                                name="middle_name"
-                                id="middleNameInput"
-                                value="{{ $user->middle_name }}"
-                                @error('middle_name') is-invalid @enderror>
+                                   class="form-control"
+                                   name="middle_name"
+                                   id="middleNameInput"
+                                   value="{{ $user->middle_name }}"
+                                   @error('middle_name') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
                             <label for="ageInput" class="form-label">
@@ -88,11 +88,11 @@
                                 @error('age') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <input type="text"
-                                class="form-control"
-                                name="age"
-                                id="ageInput"
-                                value="{{ $user->age }}"
-                                @error('age') is-invalid @enderror>
+                                   class="form-control"
+                                   name="age"
+                                   id="ageInput"
+                                   value="{{ $user->age }}"
+                                   @error('age') is-invalid @enderror>
                         </div>
                         <div class="mb-3">
                             <label for="birthDateInput" class="form-label">
@@ -115,24 +115,24 @@
                                     </label>
                                     <div class="form-check">
                                         <input class="form-check-input"
-                                            type="radio"
-                                            name="gender"
-                                            value="Мужчина"
-                                            @error('gender') is-invalid @enderror
-                                            id="flexRadioDefault1"
-                                            @if($user->gender === 'Мужчина') checked @endif>
+                                               type="radio"
+                                               name="gender"
+                                               value="Мужчина"
+                                               @error('gender') is-invalid @enderror
+                                               id="flexRadioDefault1"
+                                               @if($user->gender === 'Мужчина') checked @endif>
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Мужчина
                                         </label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input"
-                                            type="radio"
-                                            name="gender"
-                                            id="flexRadioDefault2"
-                                            value="Женщина"
-                                            @error('gender') is-invalid @enderror
-                                            @if($user->gender === 'Женщина') checked @endif>
+                                               type="radio"
+                                               name="gender"
+                                               id="flexRadioDefault2"
+                                               value="Женщина"
+                                               @error('gender') is-invalid @enderror
+                                               @if($user->gender === 'Женщина') checked @endif>
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Женщина
                                         </label>
@@ -161,24 +161,6 @@
                                             @endif
                                         @endforeach
                                     </select>
-
-                                    <script>
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            // Получаем массив ролей
-                                            const roles = @json($roles); // Преобразуем массив ролей в JSON для использования в JavaScript
-
-                                            // Находим селект по его ID
-                                            const roleSelect = document.getElementById('roleSelection');
-
-                                            // Функция для установки выбранной роли
-                                            function setSelectedRole(role) {
-                                                roleSelect.value = role;
-                                            }
-
-                                            // Устанавливаем выбранную роль при загрузке страницы
-                                            setSelectedRole('{{ $user->role }}');
-                                        });
-                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -192,19 +174,19 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <input type="text"
-                                            class="form-control"
-                                            name="weight"
-                                            placeholder="Ширь"
-                                            value="{{ $user->weight }}"
-                                            @error('weight') is-invalid @enderror>
+                                               class="form-control"
+                                               name="weight"
+                                               placeholder="Ширь"
+                                               value="{{ $user->weight }}"
+                                               @error('weight') is-invalid @enderror>
                                     </div>
                                     <div class="col-6">
                                         <input type="text"
-                                            class="form-control"
-                                            name="height"
-                                            placeholder="Высь"
-                                            value="{{ $user->height }}"
-                                            @error('height') is-invalid @enderror>
+                                               class="form-control"
+                                               name="height"
+                                               placeholder="Высь"
+                                               value="{{ $user->height }}"
+                                               @error('height') is-invalid @enderror>
                                     </div>
                                 </div>
                             </div>
@@ -222,43 +204,43 @@
                         <section id="human_couch" style="display: @if($user->role == 'Тренер') block @else none @endif">
                             <div class="mb-3">
                                 <label for="sizeClotchInput"
-                                    class="form-label">
-                                        Укажите размер одежды <b>*</b>
-                                        @error('size_cloth') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                       class="form-label">
+                                    Укажите размер одежды <b>*</b>
+                                    @error('size_cloth') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                                 </label>
                                 <input type="text"
-                                    class="form-control"
-                                    name="size_cloth"
-                                    id="sizeClotchInput"
-                                    placeholder="На пример 55"
-                                    value="{{ $user->size_cloth }}"
-                                    @error('size_cloth') is-invalid @enderror>
+                                       class="form-control"
+                                       name="size_cloth"
+                                       id="sizeClotchInput"
+                                       placeholder="На пример 55"
+                                       value="{{ $user->size_cloth }}"
+                                       @error('size_cloth') is-invalid @enderror>
                             </div>
                             <div class="mb-3">
                                 <label for="descriptionInput"
-                                    class="form-label">
-                                        Укажите описание тренера для клиента <b>*</b>
-                                        @error('description') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                       class="form-label">
+                                    Укажите описание тренера для клиента <b>*</b>
+                                    @error('description') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                                 </label>
                                 <textarea name="description"
-                                    id="descriptionInput"
-                                    cols="30" rows="10"
-                                    class="form-control"
-                                    @error('description') is-invalid @enderror>
+                                          id="descriptionInput"
+                                          cols="30" rows="10"
+                                          class="form-control"
+                                          @error('description') is-invalid @enderror>
                                         {{ $user->description }}
                                 </textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="imageInput"
-                                    class="form-label">
-                                        Укажите фотографию тренера <b>*</b>
-                                        @error('image') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
+                                       class="form-label">
+                                    Укажите фотографию тренера <b>*</b>
+                                    @error('image') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                                 </label>
                                 <input type="file"
-                                    class="form-control"
-                                    name="image"
-                                    id="imageInput"
-                                    @error('description') is-invalid @enderror>
+                                       class="form-control"
+                                       name="image"
+                                       id="imageInput"
+                                       @error('description') is-invalid @enderror>
                             </div>
                         </section>
                         <button type="submit" class="btn">Сохранить</button>
@@ -268,6 +250,18 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+                const roles = @json($roles);
+                const roleSelect = document.getElementById('roleSelection');
+
+                function setSelectedRole(role) {
+                    roleSelect.value = role;
+                }
+
+                setSelectedRole('{{ $user->role }}');
+            });
+        </script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $("#phoneInput")
