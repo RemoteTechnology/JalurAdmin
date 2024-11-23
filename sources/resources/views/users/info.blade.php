@@ -119,7 +119,8 @@
                                             name="gender"
                                             value="Мужчина"
                                             @error('gender') is-invalid @enderror
-                                            id="flexRadioDefault1">
+                                            id="flexRadioDefault1"
+                                            @if($user->gender === 'Мужчина') checked @endif>
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Мужчина
                                         </label>
@@ -131,7 +132,7 @@
                                             id="flexRadioDefault2"
                                             value="Женщина"
                                             @error('gender') is-invalid @enderror
-                                            checked>
+                                            @if($user->gender === 'Женщина') checked @endif>
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             Женщина
                                         </label>
@@ -142,18 +143,42 @@
                                         Укажите роль
                                         @error('role') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                                     </label>
-                                    <select onchange="roleRead()"
-                                        class="form-select"
-                                        name="role"
-                                        id="roleSelection"
-                                        aria-label="Default select example"
-                                        @error('gender') is-invalid @enderror>
-                                            <option value="Клиент">Клиент</option>
-                                            <option value="Тренер">Тренер</option>
-                                            <option value="Администратор">Администратор</option>
-                                            <option value="Руководитель">Руководитель</option>
-                                            <option value="Клиент-менеджер">Клиент-менеджер</option>
+                                    <select onchange="roleRead()" class="form-select" name="role" id="roleSelection" aria-label="Default select example">
+                                        @php
+                                            $roles = [
+                                                'Клиент',
+                                                'Тренер',
+                                                'Администратор',
+                                                'Руководитель',
+                                                'Клиент-менеджер',
+                                            ];
+                                        @endphp
+                                        @foreach ($roles as $role)
+                                            @if ($user->role === $role)
+                                                <option value="{{ $role }}" selected>{{ $role }}</option>
+                                            @else
+                                                <option value="{{ $role }}">{{ $role }}</option>
+                                            @endif
+                                        @endforeach
                                     </select>
+
+                                    <script>
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            // Получаем массив ролей
+                                            const roles = @json($roles); // Преобразуем массив ролей в JSON для использования в JavaScript
+
+                                            // Находим селект по его ID
+                                            const roleSelect = document.getElementById('roleSelection');
+
+                                            // Функция для установки выбранной роли
+                                            function setSelectedRole(role) {
+                                                roleSelect.value = role;
+                                            }
+
+                                            // Устанавливаем выбранную роль при загрузке страницы
+                                            setSelectedRole('{{ $user->role }}');
+                                        });
+                                    </script>
                                 </div>
                             </div>
                         </div>
