@@ -11,6 +11,7 @@ use App\Http\Services\ScheduleTimeService;
 use App\Http\Services\UserService;
 use App\Http\Services\WorkoutService;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 class ScheduleController extends Controller
 {
@@ -61,7 +62,7 @@ class ScheduleController extends Controller
         return view("schedule.for_hall", [
             "title"             => "Расписание",
             "hall_id"           => $hall_id,
-            "halls"             => $this->_hallService->all(),
+            "halls"             => Cache::get('hall'),
             "schedules"         => $schedules,
         ]);
     }
@@ -70,7 +71,7 @@ class ScheduleController extends Controller
         return view("schedule.create", [
             "title"             => "Расписание",
             "hall"              => $this->_hallService->show($hall_id),
-            "workouts"          => $this->_workoutService->all(),
+            "workouts"          => Cache::get('workout'),
             "couches"           => $this->_userService->findByRole("Тренер"),
             "schedule_times"    => $this->_scheduleTimeService->all()
         ]);
@@ -96,7 +97,7 @@ class ScheduleController extends Controller
             "schedule_id"       => $schedule_id,
             "schedule"              => $this->_scheduleService->show($schedule_id),
             "hall"              => $this->_hallService->show($hall_id),
-            "workouts"          => $this->_workoutService->all(),
+            "workouts"          => Cache::get('workout'),
             "couches"           => $this->_userService->findByRole("Тренер"),
             "schedule_times"    => $this->_scheduleTimeService->all(),
             "current_schedule_time"     => $this->_scheduleTimeService->show(

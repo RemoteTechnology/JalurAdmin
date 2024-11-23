@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\GlampingService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class GlampingController extends Controller
 {
@@ -16,7 +17,7 @@ class GlampingController extends Controller
     {
         return view("glamping.index", [
             "title"         => "Глемпинг",
-            "glampings"     => $this->_glampingService->all()
+            "glampings"     => Cache::get('glamping')
         ]);
     }
 
