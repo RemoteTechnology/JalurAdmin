@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Services\TypeWorkoutService;
 use App\Http\Services\WorkoutService;
+use Illuminate\Support\Facades\Cache;
 
 class WorkoutController extends Controller
 {
@@ -19,7 +20,8 @@ class WorkoutController extends Controller
     {
         return view("workouts.index", [
             "title"         => "Тренировки",
-            "type_workouts" => $this->_typeWorkoutService->all(),
+            //"type_workouts" => $this->_typeWorkoutService->all(),
+            'type_workouts' => Cache::get('workout_type'),
             "workouts"      => $this->_workoutService->all(),
         ]);
     }

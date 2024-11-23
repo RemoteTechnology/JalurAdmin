@@ -44,6 +44,7 @@ RUN if [ ${INSTALL_FAKETIME} = true ]; then \
 
 # Configure locale.
 
+RUN pecl install memcache
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/

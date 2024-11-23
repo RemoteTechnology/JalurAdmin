@@ -13,6 +13,7 @@ use App\Http\Services\WorkoutService;
 use Illuminate\Http\Request;
 use \Illuminate\Http\UploadedFile;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Cache;
 
 class WorkoutFormController extends Controller
 {
@@ -26,7 +27,13 @@ class WorkoutFormController extends Controller
     public function type_create(WorkoytTypeCreateRequest $request)
     {
         $workout_type = $request->validated();
-        $this->_typeWorkoutService->create($workout_type);
+        if ($this->_typeWorkoutService->create($workout_type)) {
+            Cache::forget('workout_type');
+            Cache::remember('workout_type', 9999999999, function () {
+                return $this->_typeWorkoutService->all();
+            });
+        }
+
         return back()->with("success","Тип тренировки успешно добавлен!");
     }
 
@@ -34,13 +41,18 @@ class WorkoutFormController extends Controller
     {
         try {
             $workout_type = $request->validated();
-            $this->_typeWorkoutService->delete($workout_type["id"]);
-            return back()->with("success","Тип тренировки успешно удалён!");
+            if ($this->_typeWorkoutService->delete($workout_type["id"])) {
+                Cache::forget('workout_type');
+                Cache::remember('workout_type', 9999999999, function () {
+                    return $this->_typeWorkoutService->all();
+                });
+            }
+            return back()->with("success", "Тип тренировки успешно удалён!");
         } catch(QueryException) {
-            return back()->with("error","Тип тренировки удалить не удалось, возможно есть присвоеные типы тренировкам!");
+            return back()->with("error", "Тип тренировки удалить не удалось, возможно есть присвоеные типы тренировкам!");
         }
-        
-        
+
+
     }
     public function create(Request $request_files, WorkoutCreateRequest $request)
     {

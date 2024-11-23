@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Workouts;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Hall\WorkoutTypeResource;
 use App\Http\Services\TypeWorkoutService;
+use Illuminate\Support\Facades\Cache;
 
 class WorkoutTypeController extends Controller
 {
@@ -15,7 +16,7 @@ class WorkoutTypeController extends Controller
     }
     public function index()
     {
-        return WorkoutTypeResource::collection($this->_typeWorkoutService->all());
+        return WorkoutTypeResource::collection(Cache::get('workout_type'));
     }
     public function show($id)
     {
