@@ -19,18 +19,18 @@ pipeline {
             steps {
                 script {
                     sshagent(credentials: [SSH_KEY]) {
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'rm -rf ${WORK_DIR}/${DIR_NAME}'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR} && git clone -b staging ${REPO_URL} JalurAdmin'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME}'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && cp .example.env .env'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose up --build -d'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && cp sources/.env.example sources/.env'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm composer install'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run node install'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run node run build'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm php artisan key:generate'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && chmod -R 777 \$PWD'"
-                        sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm php artisan storage:link'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'rm -rf ${WORK_DIR}/${DIR_NAME}'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR} && git clone -b staging ${REPO_URL} JalurAdmin'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME}'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && cp .example.env .env'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose up --build -d'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && cp sources/.env.example sources/.env'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm composer install'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run node install'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run node run build'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm php artisan key:generate'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && chmod -R 777 \$PWD'"
+                        //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm php artisan storage:link'"
                     }
                 }
             }
