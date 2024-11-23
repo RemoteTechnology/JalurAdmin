@@ -104,10 +104,40 @@ services:
       - postgres
       - php-fpm
 
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: ${NAME}_jenkins
+    hostname: ${NAME}_jenkins
+    ports:
+      - ${JENKINS_PORT}:8080
+      - ${JENKINS_WEB_PORT}:5000
+    volumes:
+      - jenkins_home:${JENKINS_DATA}
+    networks:
+      - jenkins-network
+
+  jenkins-agent:
+    image: jenkins/inbound-agent
+    container_name: ${NAME}_jenkins-agent
+    hostname: ${NAME}_jenkins-agent
+    environment:
+      - JENKINS_URL=${JENKINS_URL}
+      - JENKINS_AGENT_NAME=${JENKINS_AGENT_NAME}
+      - JENKINS_AGENT_WORKDIR=${JENKINS_AGENT_WORKDIR}
+      - JENKINS_SECRET=${JENKINS_SECRET}
+    volumes:
+      - agent_workdir:${JENKINS_AGENT_WORKDIR}
+    depends_on:
+      - jenkins
+    networks:
+      - jenkins-network
 
 volumes:
   dbdata:
-    driver: local
   cachedata:
+  jenkins_home:
+  agent_workdir:
     driver: local
-        
+
+networks:
+  jenkins-network:
