@@ -104,7 +104,7 @@
     <li>
         <p>
             <span>На продакшене запустить крон:</span><br>
-            <b style="color: #222;">(sudo) crontab -e</b>
+            <b style="color: #222;">(sudo) crontab -e</b><br>
             <b style="color: #222;">(sudo) 59 23 * * * docker exec -it <CONTAINER ID> sh /var/www/dump/dump.sh</b>
         </p>
     </li>
