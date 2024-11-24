@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Hall\HallResource;
 use App\Http\Services\HallService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class HallController extends Controller
 {
@@ -16,7 +17,7 @@ class HallController extends Controller
     }
     public function index()
     {
-        return HallResource::collection($this->_hallService->all());
+        return HallResource::collection(Cache::get('hall'));
     }
     public function show(int $id)
     {

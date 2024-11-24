@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-                @if (count($workouts) > 0)
+                @if ($workouts && count($workouts) > 0)
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -148,12 +148,13 @@
                             @foreach ($workouts as $workout)
                                 <tr>
                                     <td>{{ $workout->name }}</td>
-                                    @foreach ($type_workouts as $type_workout)
-                                        @if ($type_workout->id == $workout->type_workout_id)
-                                            <td>{{ $type_workout->name }}</td>
-                                        @endif
-                                    @endforeach
-
+                                    @if(!empty($type_workout))
+                                        @foreach ($type_workouts as $type_workout)
+                                            @if ($type_workout->id == $workout->type_workout_id)
+                                                <td>{{ $type_workout->name }}</td>
+                                            @endif
+                                        @endforeach
+                                    @endif
                                     <td>{{ $workout->description }}</td>
                                     <td>
                                         <form action="{{ route('workout.form.delete') }}" method="post">

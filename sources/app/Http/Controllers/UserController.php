@@ -6,6 +6,7 @@ use App\Http\Services\HallService;
 use App\Http\Services\RecordService;
 use App\Http\Services\UserService;
 use App\Http\Services\UserTargetService;
+use Illuminate\Support\Facades\Cache;
 
 class UserController extends Controller
 {
@@ -32,7 +33,7 @@ class UserController extends Controller
             return view("users.index", [
                 "title"         => "Пользователи",
                 "users"         => session()->get('users'),
-                "halls"         => $this->_hallService->all(),
+                "halls"         => Cache::get('hall'),
                 "targets"       => $this->_userTargetService->all(),
                 "records"       => $this->_recordService->all()
             ]);
@@ -42,7 +43,7 @@ class UserController extends Controller
             return view("users.index", [
                 "title"         => "Пользователи",
                 "users"         => session()->get('schedules'),
-                "halls"         => $this->_hallService->all(),
+                "halls"         => Cache::get('hall'),
                 "targets"       => $this->_userTargetService->all(),
                 "records"       => []
             ]);
@@ -50,7 +51,7 @@ class UserController extends Controller
         return view("users.index", [
             "title"         => "Пользователи",
             "users"         => $this->_userService->findByRole(),
-            "halls"         => $this->_hallService->all(),
+            "halls"         => Cache::get('hall'),
             "targets"       => $this->_userTargetService->all(),
             "records"       => []
         ]);

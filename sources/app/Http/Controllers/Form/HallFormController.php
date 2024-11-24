@@ -8,6 +8,7 @@ use App\Http\Requests\Hall\HallUpdateRequest;
 use App\Http\Requests\Hall\HallDeleteRequest;
 use App\Http\Services\HallService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class HallFormController extends Controller
 {
@@ -22,6 +23,10 @@ class HallFormController extends Controller
         $hall = $request->validated();
         if ($this->_hallService->create($hall))
         {
+            Cache::forget('hall');
+            Cache::remember('hall', null, function () {
+                return $this->_hallService->all();
+            });
             return back()->with("success", "Данные успешно добавлены!");
         }
         return back()->with("error", $hall);
@@ -32,6 +37,10 @@ class HallFormController extends Controller
         $hall = $request->validated();
         if ($this->_hallService->update($hall))
         {
+            Cache::forget('hall');
+            Cache::remember('hall', null, function () {
+                return $this->_hallService->all();
+            });
             return back()->with("success", "Данные успешно обновлены!");
         }
         return back()->with("error", $hall);
@@ -42,6 +51,10 @@ class HallFormController extends Controller
         $hall = $request->validated();
         if ($this->_hallService->delete($hall["id"]))
         {
+            Cache::forget('hall');
+            Cache::remember('hall', null, function () {
+                return $this->_hallService->all();
+            });
             return redirect()->route('hall.index')->with("success", "Данные успешно удалены!");
         }
         return back()->with("error", $hall);

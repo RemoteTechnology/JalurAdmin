@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Hall\ScheduleResource;
 use App\Http\Services\ScheduleService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ScheduleController extends Controller
 {
@@ -16,7 +17,7 @@ class ScheduleController extends Controller
     }
     public function index()
     {
-        return ScheduleResource::collection($this->_scheduleService->all());
+        return ScheduleResource::collection(Cache::get('schedule'));
     }
     public function show(int $id)
     {
