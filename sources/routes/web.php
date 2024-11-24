@@ -17,6 +17,12 @@ use App\Http\Controllers\Schedules\ScheduleController;
 use App\Http\Controllers\Schedules\ScheduleTimeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkoutController;
+use App\Models\Glamping;
+use App\Models\Hall;
+use App\Models\Schedule;
+use App\Models\TypeWorkout;
+use App\Models\Workout;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -202,3 +208,31 @@ Route::prefix('abonement')->group(function () {
     Route::get('/', [AbonementController::class, 'index'])->name('abonement.index');
     Route::get('/show/{id}', [AbonementController::class, 'show'])->name('abonement.show');
 });
+
+// Для обновления кэша
+Route::get('cache-update', function () {
+    Cache::forget('glamping');
+    Cache::remember('glamping', null, function () {
+        return Glamping::all();
+    });
+
+    Cache::forget('hall');
+    Cache::remember('hall', null, function () {
+        return Hall::all();
+    });
+
+    Cache::forget('workout_type');
+    Cache::remember('workout_type', null, function () {
+        return TypeWorkout::all();
+    });
+
+    Cache::forget('workout');
+    Cache::remember('workout', null, function () {
+        return Workout::all();
+    });
+
+    Cache::forget('schedule');
+    Cache::remember('schedule', null, function () {
+        return Schedule::all();
+    });
+})->name('cache.update');
