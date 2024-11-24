@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Workouts;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Hall\WorkoutResource;
 use App\Http\Services\WorkoutService;
+use Illuminate\Support\Facades\Cache;
 
 class WorkoutController extends Controller
 {
@@ -15,7 +16,7 @@ class WorkoutController extends Controller
     }
     public function index()
     {
-        return WorkoutResource::collection($this->_workoutService->all());
+        return WorkoutResource::collection(Cache::get('workout'));
     }
     public function show(int $id)
     {

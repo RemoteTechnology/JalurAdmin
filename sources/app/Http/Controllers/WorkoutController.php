@@ -20,17 +20,16 @@ class WorkoutController extends Controller
     {
         return view("workouts.index", [
             "title"         => "Тренировки",
-            //"type_workouts" => $this->_typeWorkoutService->all(),
             'type_workouts' => Cache::get('workout_type'),
-            "workouts"      => $this->_workoutService->all(),
+            "workouts"      => Cache::get('workout'),
         ]);
     }
     public  function show(int $id)
     {
         return view('workouts.show', [
-            'title'         => 'Тренировки',
+           'title'         => 'Тренировки',
            'workout' => $this->_workoutService->show($id),
-           'type_workouts' => $this->_typeWorkoutService->all()
+           'type_workouts' => Cache::get('workout_type')
         ]);
     }
 }

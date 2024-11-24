@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\HallService;
+use Illuminate\Support\Facades\Cache;
 
 class HallController extends Controller
 {
@@ -16,7 +17,7 @@ class HallController extends Controller
     {
         return view("halls.index", [
             "title"     => "Залы",
-            "halls"     => $this->_hallService->all()
+            "halls"     => Cache::get('hall')
         ]);
     }
 
