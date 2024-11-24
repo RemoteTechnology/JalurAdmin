@@ -1,0 +1,46 @@
+#!groovy
+properties([disableConcurrentBuilds()])
+pipeline {
+    agent any
+    options {
+        timestamps()
+    }
+
+    stages {
+        stage('Стягивание изменений') {
+            steps {
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && git status && git pull'"
+            }
+        }
+        stage('Сборка проекта') {
+            steps {
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose down && docker-compose up --build -d'"
+            }
+        }
+        stage('Установка зависимостей') {
+            steps {
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run composer install && docker-compose run node install'"
+            }
+        }
+        stage('Применение миграций') {
+            steps {
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run php-fpm php artisan migrate'"
+            }
+        }
+        stage('Очистка кэша') {
+            steps {
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run php-fpm php artisan cache:clear && docker-compose run php-fpm php artisan optimize:clear'"
+            }
+        }
+    }
+    
+
+    post {
+        success {
+            echo 'Развертывание из staging прошло успешно!'
+        }
+        failure {
+            echo 'Ошибка развёртывания!'
+        }
+    }
+}
