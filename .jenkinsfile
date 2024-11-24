@@ -19,6 +19,7 @@ pipeline {
             steps {
                 script {
                     sshagent(credentials: [SSH_KEY]) {
+                        echo 12345678910
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'rm -rf ${WORK_DIR}/${DIR_NAME}'"
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR} && git clone -b staging ${REPO_URL} JalurAdmin'"
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME}'"
