@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Сборка проекта') {
             steps {
-                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose up --build -d'"
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose down && docker-compose up --build -d'"
             }
         }
         stage('Установка зависимостей') {
