@@ -1,25 +1,34 @@
+#!groovy
+properties([disableConcurrentBuilds()])
 pipeline {
-    agent any
-
-    environment {
-            load '.env'
-        }
-
-    environment {
-        SERVER_IP = ${SERVER_IP}
-        SERVER_USER = 'root'
-        SSH_KEY = credentials(${SECRET_SSH})
-        REPO_URL = ${REPOSITORY_URL}
-        WORK_DIR = '/root/'
-        DIR_NAME = 'JalurAdmin'
+    agent { 
+        label 'master'
     }
+    options {
+        timestamps()
+    }
+
+    environment {
+        load '.env'
+    }
+
+    //environment {
+        //SERVER_IP = ${SERVER_IP}
+        //SERVER_USER = 'root'
+        //SSH_KEY = credentials(${SECRET_SSH})
+        //REPO_URL = ${REPOSITORY_URL}
+        //WORK_DIR = '/root/'
+        //DIR_NAME = 'JalurAdmin'
+    //}
 
     stages {
         stage('Сборка') {
             steps {
-                script {
-                    sshagent(credentials: [SSH_KEY]) {
-                        echo 12345678910
+                steps {
+                    sh 'ssh root@ub1 \'hostname\''
+                }
+                //script {
+                    //sshagent(credentials: [SSH_KEY]) {
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'rm -rf ${WORK_DIR}/${DIR_NAME}'"
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR} && git clone -b staging ${REPO_URL} JalurAdmin'"
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME}'"
@@ -32,8 +41,8 @@ pipeline {
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm php artisan key:generate'"
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && chmod -R 777 \$PWD'"
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'cd ${WORK_DIR}/${DIR_NAME} && docker-compose run php-fpm php artisan storage:link'"
-                    }
-                }
+                    //}
+                //}
             }
         }
     }
