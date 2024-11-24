@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Установка зависимостей') {
             steps {
-                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run php-fpm composer install && docker-compose run node install'"
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run composer install && docker-compose run node install'"
             }
         }
         stage('Применение миграций') {
