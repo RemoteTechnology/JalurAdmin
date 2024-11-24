@@ -22,9 +22,8 @@ pipeline {
     stages {
         stage('Сборка') {
             steps {
-                steps {
-                    sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'hostname'"
-                }
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'hostname'"
+
                 //script {
                     //sshagent(credentials: [SSH_KEY]) {
                         //sh "ssh -o StrictHostKeyChecking=no ${SERVER_USER}@${SERVER_IP} 'rm -rf ${WORK_DIR}/${DIR_NAME}'"
