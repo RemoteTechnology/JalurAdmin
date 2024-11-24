@@ -27,9 +27,10 @@ pipeline {
                 sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run php-fpm php artisan migrate'"
             }
         }
-        stage('Очистка кэша') {
+        stage('Очистка/Обновление кэша') {
             steps {
                 sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run php-fpm php artisan cache:clear && docker-compose run php-fpm php artisan optimize:clear'"
+                sh "ssh -o StrictHostKeyChecking=no root@176.113.83.11 'cd JalurAdmin && docker-compose run php-fpm php artisan app:cache-update-command'"
             }
         }
     }
