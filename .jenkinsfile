@@ -8,9 +8,9 @@ pipeline {
         timestamps()
     }
 
-    environment {
-        load '.env'
-    }
+    //environment {
+        //load '.env'
+    //}
 
     //environment {
         //SERVER_IP = ${SERVER_IP}
