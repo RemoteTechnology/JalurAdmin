@@ -1,3 +1,5 @@
-vendor
-node_modules
+.gitconfig
+*/.$schema.drawio.bkp
+.idea
+.gigaide
 .env
