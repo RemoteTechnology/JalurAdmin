@@ -1,9 +1,7 @@
 #!groovy
 properties([disableConcurrentBuilds()])
 pipeline {
-    agent { 
-        label 'staging'
-    }
+    agent any
     options {
         timestamps()
     }
