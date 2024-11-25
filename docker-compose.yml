@@ -1,4 +1,5 @@
 version: "3.8"
+
 services:
   nginx:
     container_name: ${NAME}_nginx
@@ -12,6 +13,8 @@ services:
     volumes:
       - ./${DOCKER_PATH}/${HTTP_LOCAL_CONFIG_PATH}:${HTTP_CONTAINER_CONFIG_PATH}:ro
       - ./${APP_LOCAL_PATH}:${APP_CONTAINER_PATH}
+    networks:
+      - app
 
   postgres:
     container_name: ${NAME}_postgres
@@ -28,10 +31,11 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_ROOT_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      #- ./app/jobs/dump/dump.sh:/var/www/data/database/dump.sh:ro
       - .:/docker-entrypoint-initdb.d
       - dbdata:${POSTGRES_DBDATA}
       - ./app/dump:/var/www/data/database/dump
+#    networks:
+#      - app
 
   php-fpm:
     container_name: ${NAME}_php-fpm
@@ -62,6 +66,8 @@ services:
     depends_on:
       - nginx
       - postgres
+    networks:
+      - app
 
   node:
     container_name: ${NAME}_node
@@ -91,6 +97,8 @@ services:
       - nginx
       - postgres
       - php-fpm
+    networks:
+      - app
 
   jenkins:
     image: jenkins/jenkins:lts
@@ -128,4 +136,7 @@ volumes:
     driver: local
 
 networks:
+  app:
+    driver: 'bridge'
   jenkins-network:
+    driver: 'bridge'
