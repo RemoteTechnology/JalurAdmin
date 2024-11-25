@@ -2,3 +2,4 @@
 */.$schema.drawio.bkp
 .idea
 .env
+app/dump/*.sql

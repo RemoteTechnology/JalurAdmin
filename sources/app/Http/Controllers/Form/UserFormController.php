@@ -95,7 +95,7 @@ class UserFormController extends Controller
     {
         $request = $request->validated();
         $user = $this->_userService->findByPhone($request['phone']);
-        if(!is_null($user) && $user->role == "Администратор")
+        if(!is_null($user) && $user->role === "Администратор")
         {
             $this->_userService->resetToPassword($user);
             return redirect()->route("user.login")->with('success', 'Пароль успешно обновлён!');

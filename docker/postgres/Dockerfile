@@ -7,23 +7,18 @@ ENV TZ ${TZ}
 RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo ${TZ} > /etc/timezone
 
-# Установка cron и supervisord
-RUN apk add --no-cache cronie supervisor
+RUN apk add --no-cache supervisor postgresql-client
 
-# Создание рабочей директории
-WORKDIR /var/www/data/database
+RUN mkdir -p /var/log/postgresql && \
+    chown -R postgres:postgres /var/log/postgresql
 
-# Создание папки для дампов
-RUN mkdir "/var/www/data/database/dump"
-
-COPY crontab /etc/crontabs/root
-COPY dump.sh .
-RUN chmod +x /var/www/data/database/dump.sh
-
-# Копирование конфигурационного файла supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+WORKDIR /var/www/data/database
+RUN mkdir "/var/www/data/database/dump"
+COPY dump.sh /var/www/data/database/dump.sh
+RUN chmod +x /var/www/data/database/dump.sh
 
 EXPOSE 5432
 
-# Запуск supervisord
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
