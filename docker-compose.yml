@@ -34,8 +34,8 @@ services:
       - .:/docker-entrypoint-initdb.d
       - dbdata:${POSTGRES_DBDATA}
       - ./app/dump:/var/www/data/database/dump
-#    networks:
-#      - app
+    networks:
+      - app
 
   php-fpm:
     container_name: ${NAME}_php-fpm

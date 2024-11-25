@@ -144,7 +144,7 @@ class UserService implements UserServiceInterface
     {
         $new_password = self::generateRandomString(12);
         $user->password_admin = Hash::make($new_password);
-        $this->_smsMailingService->smsSend($new_password, $user->phone);
+        // $this->_smsMailingService->smsSend($new_password, $user->phone);
         $user->save();
         return $user;
     }
