@@ -50,7 +50,7 @@
                         </section>
                         <section class="mt-3">
                             <p>Вы моежте задать интересующий вас вопрос по панели администратора, разработчику.</p>
-                            <a href="https://t.me/mironovV_v" class="btn">Задать вопрос</a>
+                            <a href="https://t.me/mironov_vo" class="btn">Задать вопрос</a>
                         </section>
                         <section class="mt-3">
                             <p>Вы моежте задать интересующий вас вопрос по мобильному приложению, разработчику.</p>

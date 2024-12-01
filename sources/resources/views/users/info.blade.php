@@ -226,9 +226,7 @@
                                           id="descriptionInput"
                                           cols="30" rows="10"
                                           class="form-control"
-                                          @error('description') is-invalid @enderror>
-                                        {{ $user->description }}
-                                </textarea>
+                                          @error('description') is-invalid @enderror>{{ $user->description }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="imageInput"

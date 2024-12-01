@@ -51,9 +51,7 @@
                                 <textarea name="description"
                                           id="descriptionInput"
                                           class="form-control"
-                                          cols="30" rows="10">
-                                            {{ trim($workout->description) }}
-                            </textarea>
+                                          cols="30" rows="10">{{ trim($workout->description) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="imagesInput"
@@ -67,7 +65,7 @@
                                         <img src="{{ asset('/storage/' . $workout->image) }}" alt="{{ $workout->name }}" class="img-fluid">
                                     </section>
                                 @endif
-                                <input type="file" class="form-control" name="images" id="imagesInput">
+                                <input type="file" class="form-control" name="image" id="imagesInput">
                             </div>
                             <button type="submit" class="btn" data-bs-dismiss="modal" aria-label="Close">Обновить</button>
                         </form>

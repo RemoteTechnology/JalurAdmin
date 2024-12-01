@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\CacheUpdateCommand' => $baseDir . '/app/Console/Commands/CacheUpdateCommand.php',
     'App\\Console\\Commands\\CreateSuperUserCommand' => $baseDir . '/app/Console/Commands/CreateSuperUserCommand.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',

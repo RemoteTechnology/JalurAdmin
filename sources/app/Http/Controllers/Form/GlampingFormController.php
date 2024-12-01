@@ -23,9 +23,7 @@ class GlampingFormController extends Controller
         if ($this->_glampingService->create($glamping, $request_files->file('image')))
         {
             Cache::forget('glamping');
-            Cache::remember('glamping', null, function () {
-                return $this->_glampingService->all();
-            });
+            Cache::forever('glamping', $this->_glampingService->all());
             return back()->with("success","Данные успешно добавлены!");
         }
         else
@@ -39,9 +37,7 @@ class GlampingFormController extends Controller
         if ($this->_glampingService->update($glamping, $request_files->file('image')))
         {
             Cache::forget('glamping');
-            Cache::remember('glamping', null, function () {
-                return $this->_glampingService->all();
-            });
+            Cache::forever('glamping', $this->_glampingService->all());
             return back()->with("success","Данные успешно обновлены!");
         }
         else
@@ -55,9 +51,7 @@ class GlampingFormController extends Controller
         if ($this->_glampingService->delete($glamping["id"]))
         {
             Cache::forget('glamping');
-            Cache::remember('glamping', null, function () {
-                return $this->_glampingService->all();
-            });
+            Cache::forever('glamping', $this->_glampingService->all());
             return back()->with("success","Данные успешно добавлены!");
         }
         else

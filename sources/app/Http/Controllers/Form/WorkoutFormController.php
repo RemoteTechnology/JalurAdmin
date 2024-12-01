@@ -29,9 +29,7 @@ class WorkoutFormController extends Controller
         $workout_type = $request->validated();
         if ($this->_typeWorkoutService->create($workout_type)) {
             Cache::forget('workout_type');
-            Cache::remember('workout_type', null, function () {
-                return $this->_typeWorkoutService->all();
-            });
+            Cache::forever('workout_type', $this->_typeWorkoutService->all());
         }
 
         return back()->with("success","Тип тренировки успешно добавлен!");
@@ -43,9 +41,7 @@ class WorkoutFormController extends Controller
             $workout_type = $request->validated();
             if ($this->_typeWorkoutService->delete($workout_type["id"])) {
                 Cache::forget('workout_type');
-                Cache::remember('workout_type', null, function () {
-                    return $this->_typeWorkoutService->all();
-                });
+                Cache::forever('workout_type', $this->_typeWorkoutService->all());
             }
             return back()->with("success", "Тип тренировки успешно удалён!");
         } catch(QueryException) {
@@ -63,9 +59,7 @@ class WorkoutFormController extends Controller
             }
             if ($this->_workoutService->create($workout, $request_files["images"] ? $request_files->file('images') : null)) {
                 Cache::forget('workout');
-                Cache::remember('workout', null, function () {
-                    return $this->_workoutService->all();
-                });
+                Cache::forever('workout', $this->_workoutService->all());
             }
         }
         catch (\TypeError)
@@ -74,26 +68,24 @@ class WorkoutFormController extends Controller
         }
         return back()->with("success","Данные добавлены успешно!");
     }
+
     public function update(Request $request_files, WorkoutUpdateRequest $request)
     {
         $workout = $request->validated();
         if ($this->_workoutService->update($workout, $request_files["image"] ? $request_files->file('image') : null))
         {
             Cache::forget('workout');
-            Cache::remember('workout', null, function () {
-                return $this->_workoutService->all();
-            });
+            Cache::forever('workout', $this->_workoutService->all());
         }
         return back()->with("success","Данные успешно обновлены!");
     }
+
     public function delete(WorkoutDeleteRequest $request)
     {
         $workout = $request->validated();
         if ($this->_workoutService->delete($workout["id"])) {
             Cache::forget('workout');
-            Cache::remember('workout', null, function () {
-                return $this->_workoutService->all();
-            });
+            Cache::forever('workout', $this->_workoutService->all());
         }
         return back()->with("success","Данные успешно удалены!");
     }

@@ -77,6 +77,8 @@
         <span>Установить права и группу на директорию с проектом:</span><br>
         <b style="color: #222;">sudo chmod -R 777 $PWD</b><br>
         <b style="color: #222;">sudo chown -R <MY GROUP>:<MY GROUP> $PWD</b><br>
+        <b style="color: #222;">sudo chmod -R 777 sources/storage/framework/cache</b><br>
+        <b style="color: #222;">sudo chown -R www-data:www-data sources/storage/framework/cache</b><br>
     </li>
     <br />
     <li>

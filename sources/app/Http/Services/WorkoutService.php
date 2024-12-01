@@ -40,7 +40,7 @@ class WorkoutService implements WorkoutServiceInterface
         $model->description = $workout["description"];
         if (!is_null($fileLists))
         {
-            $model->images = $fileLists->store('uploads', 'public');
+            $model->image = $fileLists->store('uploads', 'public');
         }
         $model->type_workout_id = $workout["type_workout_id"];
         $model->save();

@@ -22,9 +22,7 @@ class ScheduleFormController extends Controller
         if ($this->_scheduleService->create($request))
         {
             Cache::forget('schedule');
-            Cache::remember('schedule', null, function () {
-                return $this->_scheduleService->all();
-            });
+            Cache::forever('schedule', $this->_scheduleService->all());
             return back()->with('success', 'Данные сохранены!');
         }
         return back()->with('success', 'Данные не удалось сохранить!');
@@ -35,9 +33,7 @@ class ScheduleFormController extends Controller
         if ($this->_scheduleService->update($this->_scheduleService->show($request["id"]), $request))
         {
             Cache::forget('schedule');
-            Cache::remember('schedule', null, function () {
-                return $this->_scheduleService->all();
-            });
+            Cache::forever('schedule', $this->_scheduleService->all());
             return back()->with('success', 'Данные обновлены!');
         }
         return back()->with('success', 'Данные обновить не удалось!');
@@ -47,9 +43,7 @@ class ScheduleFormController extends Controller
         if ($this->_scheduleService->delete($request->id))
         {
             Cache::forget('schedule');
-            Cache::remember('schedule', null, function () {
-                return $this->_scheduleService->all();
-            });
+            Cache::forever('schedule', $this->_scheduleService->all());
             return redirect()->route('schedule.index')->with('success', 'Данные удалены!');
         }
         return back()->with('success', 'Данные удалить не удалось!');

@@ -115,9 +115,7 @@
                                             <textarea name="description"
                                                 id="descriptionInput"
                                                 class="form-control"
-                                                cols="30" rows="10">
-                                                {{ old('description') }}
-                                            </textarea>
+                                                cols="30" rows="10">{{ old('description') }}</textarea>
                                         </div>
                                         <div class="mb-3">
                                             <label for="imagesInput"
@@ -155,7 +153,7 @@
                                             @endif
                                         @endforeach
                                     @endif
-                                    <td>{{ $workout->description }}</td>
+                                    <td>{{ mb_substr($workout->description, 0, 60) }}</td>
                                     <td>
                                         <form action="{{ route('workout.form.delete') }}" method="post">
                                             @csrf

@@ -24,9 +24,7 @@ class HallFormController extends Controller
         if ($this->_hallService->create($hall))
         {
             Cache::forget('hall');
-            Cache::remember('hall', null, function () {
-                return $this->_hallService->all();
-            });
+            Cache::forever('hall', $this->_hallService->all());
             return back()->with("success", "Данные успешно добавлены!");
         }
         return back()->with("error", $hall);
@@ -38,9 +36,7 @@ class HallFormController extends Controller
         if ($this->_hallService->update($hall))
         {
             Cache::forget('hall');
-            Cache::remember('hall', null, function () {
-                return $this->_hallService->all();
-            });
+            Cache::forever('hall', $this->_hallService->all());
             return back()->with("success", "Данные успешно обновлены!");
         }
         return back()->with("error", $hall);
@@ -52,9 +48,7 @@ class HallFormController extends Controller
         if ($this->_hallService->delete($hall["id"]))
         {
             Cache::forget('hall');
-            Cache::remember('hall', null, function () {
-                return $this->_hallService->all();
-            });
+            Cache::forever('hall', $this->_hallService->all());
             return redirect()->route('hall.index')->with("success", "Данные успешно удалены!");
         }
         return back()->with("error", $hall);

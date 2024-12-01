@@ -71,7 +71,11 @@
                                     @error('image') <span class="invalid-feedback d-block">{{ $message }}</span> @enderror
                             </label>
                             <section class="mb-2">
-                                <img src="{{ asset('/storage/' . $glamping->image) }}" class="img-fluid" alt="{{ $glamping->name }}">
+                                @php
+                                    $sources = $glamping->image;
+                                    $image = json_decode($sources, true);
+                                @endphp
+                                <img src="{{ asset('/storage/' . $image[0]['name']) }}" class="img-fluid" alt="{{ $glamping->name }}">
                             </section>
                             <input type="file"
                                 class="form-control"
@@ -89,9 +93,7 @@
                                 class="form-control"
                                 id="descriptionInput"
                                 cols="30" rows="10"
-                                @error('descriptionInput') is-invalid @enderror>
-                                    {{ trim($glamping->description) }}
-                            </textarea>
+                                @error('descriptionInput') is-invalid @enderror>{{ trim($glamping->description) }}</textarea>
                         </div>
                         <button type="submit" class="btn">Обновить данные глемпинга</button>
                     </form>

@@ -34,27 +34,27 @@ class CacheUpdateCommand extends Command
     {
         try {
             Cache::forget('glamping');
-            Cache::remember('glamping', null, function () {
+            Cache::rememberForever('glamping', function () {
                 return Glamping::all();
             });
 
             Cache::forget('hall');
-            Cache::remember('hall', null, function () {
+            Cache::rememberForever('hall', function () {
                 return Hall::all();
             });
 
             Cache::forget('workout_type');
-            Cache::remember('workout_type', null, function () {
+            Cache::rememberForever('workout_type', function () {
                 return TypeWorkout::all();
             });
 
             Cache::forget('workout');
-            Cache::remember('workout', null, function () {
+            Cache::rememberForever('workout', function () {
                 return Workout::all();
             });
 
             Cache::forget('schedule');
-            Cache::remember('schedule', null, function () {
+            Cache::rememberForever('schedule', function () {
                 return Schedule::all();
             });
             $this->info('Кэш успешно обновлён!');

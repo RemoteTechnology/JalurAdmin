@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('birth_date')->nullable();
             $table->enum('role', ['Администратор', 'Клиент', 'Тренер', 'Руководитель', 'Клиент-менеджер']);
             $table->enum('gender', ['Мужчина', 'Женщина']);
-            $table->string('image')->nullable();
+            $table->string('image')->nullable(); // Это поле юлагополучно забыто
             $table->text('description')->nullable();
             $table->float('weight')->nullable();
             $table->float('height')->nullable();
