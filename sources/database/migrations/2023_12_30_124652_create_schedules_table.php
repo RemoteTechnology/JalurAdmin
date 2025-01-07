@@ -19,7 +19,10 @@ return new class extends Migration
             $table->integer('schedule_time_id');
             $table->timestamp('date');
             $table->integer('count_record')->default(15);
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
 
             $table->foreign('hall_id')
                 ->references('id')

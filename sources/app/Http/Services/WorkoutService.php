@@ -31,7 +31,7 @@ class WorkoutService implements WorkoutServiceInterface
     }
     public function all(string $status): Collection
     {
-        return Workout::all()->where(['status' => $status]);
+        return Workout::where(['status' => $status])->get();
     }
     public function update(array $workout, UploadedFile|null $fileLists): Workout
     {

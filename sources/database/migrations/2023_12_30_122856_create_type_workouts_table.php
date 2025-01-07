@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('type_workouts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
         });
     }
 

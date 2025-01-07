@@ -21,8 +21,10 @@ return new class extends Migration
             $table->foreign('type_workout_id')
                 ->references('id')
                 ->on('type_workouts');
-
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
         });
     }
 

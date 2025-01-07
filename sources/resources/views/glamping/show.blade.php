@@ -72,10 +72,10 @@
                             </label>
                             <section class="mb-2">
                                 @php
-                                    $sources = $glamping->image;
-                                    $image = json_decode($sources, true);
+//                                    $sources = $glamping->image;
+//                                    $image = json_decode($sources, true);
                                 @endphp
-                                <img src="{{ asset('/storage/' . $image[0]['name']) }}" class="img-fluid" alt="{{ $glamping->name }}">
+                                <img src="{{ asset('/storage/' . $glamping->image) }}" class="img-fluid" alt="{{ $glamping->name }}">
                             </section>
                             <input type="file"
                                 class="form-control"

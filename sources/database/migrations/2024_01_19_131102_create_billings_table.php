@@ -17,7 +17,11 @@ return new class extends Migration
             $table->integer('user_id');
             $table->enum('status', ['Оплачен', 'Возврат']);
             $table->jsonb('payments');
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
+
             $table->foreign('contract_id')
                 ->references('contract')
                 ->on('records')

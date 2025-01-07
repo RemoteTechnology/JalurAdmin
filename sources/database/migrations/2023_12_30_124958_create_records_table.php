@@ -18,7 +18,10 @@ return new class extends Migration
             $table->integer('schedule_id');
             $table->integer('total_training')->default(1);
             $table->integer('remaining_training');
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
 
             $table->foreign('user_id')
                 ->references('id')

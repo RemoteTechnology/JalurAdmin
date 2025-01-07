@@ -27,7 +27,7 @@ class GlampingService implements GlampingServiceInterface
         $model->save();
         return $model;
     }
-    public function show(int $id): Glamping
+    public function show(int $id): Glamping|null
     {
         return Glamping::find($id);
     }

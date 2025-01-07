@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    @if(count($halls) > 0)
+                    @if(!empty($halls))
                         <table class="table table-hover">
                             <thead>
                                 <tr>

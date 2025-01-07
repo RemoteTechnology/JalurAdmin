@@ -16,7 +16,11 @@ return new class extends Migration
             $table->uuid('contract_id');
             $table->date('visition_date');
             $table->enum('status', ['Пропущено', 'Посещено', 'Перенесено', 'Ожидает']);
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
+
             $table->foreign('contract_id')
                 ->references('contract')
                 ->on('records')

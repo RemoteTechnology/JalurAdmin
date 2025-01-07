@@ -35,7 +35,7 @@
                                         </div>
                                     </form>
                                     <div class="row mt-4">
-                                        @if (count($type_workouts) == 0)
+                                        @if (empty($type_workouts))
                                             <div class="alert alert-warning" role="alert">Данных нет!</div>
                                         @else
                                             <table class="table table-hover table-bordered">
@@ -82,7 +82,7 @@
                                     <form action="{{ route('workout.form.create') }}" method="post" class="p-3" enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
-                                            @if (count($type_workouts) == 0)
+                                            @if (empty($type_workouts))
                                                 <div class="alert alert-warning" role="alert">Данных нет!<br>Добавьте тип тренировки.</div>
                                             @else
                                                 <label for="typeWorkoutIdInput" class="form-label">Выберите тип тренировки</label>
@@ -168,7 +168,7 @@
                     </table>
                 @else
                     <div class="alert alert-warning" role="alert">
-                        Данных нет! @if (count($type_workouts) == 0) <b>Добавьте тип тренировки.</b> @endif
+                        Данных нет! @if (empty($type_workouts)) <b>Добавьте тип тренировки.</b> @endif
                     </div>
                 @endif
             </div>

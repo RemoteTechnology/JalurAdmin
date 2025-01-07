@@ -139,6 +139,7 @@ services:
       - ${JENKINS_WEB_PORT}:5000
     volumes:
       - jenkins_home:${JENKINS_DATA}
+      - ./app/rsa:/var/jenkins_home/.ssh
     networks:
       - jenkins-network
 

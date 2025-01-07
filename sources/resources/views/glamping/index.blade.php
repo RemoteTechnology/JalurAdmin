@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    @if (count($glampings) == 0)
+                    @if (empty($glampings))
                         <div class="alert alert-warning" role="alert">Данных нет!</div>
                     @else
                         <table class="table table-hover">

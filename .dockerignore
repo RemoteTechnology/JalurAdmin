@@ -3,3 +3,4 @@
 .idea
 .gigaide
 .env
+app/rsa/*

@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->date('date');
             $table->time('time');
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
         });
     }
 

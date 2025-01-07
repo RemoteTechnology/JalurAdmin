@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('schedule_times', function (Blueprint $table) {
             $table->id();
             $table->time('start_time');
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
         });
     }
 

@@ -4,7 +4,7 @@
     @auth
         <div id="content" class="col-lg-9">
             @include('layouts.top-navbar')
-            <div class="container mb-9 mt-12">
+            <div class="container mb-9 mt-12" style="margin-top: 12em;">
                 <div class="row">
                     <div class="col-2">
                         <p>Дата: <strong>{{ mb_substr($schedule->date, 0, 10) }}</strong></p>

@@ -9,7 +9,7 @@ use Illuminate\Http\UploadedFile;
 interface GlampingServiceInterface
 {
     public function create(array $glamping, UploadedFile $fileLists): Glamping;
-    public function show(int $id): Glamping;
+    public function show(int $id): Glamping|null;
     public function all(): Collection;
     public function update(array $glamping, UploadedFile $fileLists): Glamping;
     public function delete(int $id): bool;

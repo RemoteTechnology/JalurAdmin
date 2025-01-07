@@ -18,7 +18,10 @@ return new class extends Migration
             $table->text('description');
             $table->time('start_work_time');
             $table->time('end_work_time');
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
         });
     }
 

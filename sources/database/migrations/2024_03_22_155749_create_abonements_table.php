@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->integer('price');
             $table->integer('time_of_action')->default(1);
-            $table->timestamps();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
+            $table->timestamp('deleted_at')
+                ->nullable();
         });
     }
 

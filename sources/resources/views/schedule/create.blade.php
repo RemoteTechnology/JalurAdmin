@@ -16,7 +16,7 @@
                                 <input type="hidden" name="hall_id" value="{{ $hall->id }}">
                                 <div class="mb-3">
                                     <label class="form-label">Выберите тренировку</label>
-                                    @if (count($workouts) != 0)
+                                    @if (!empty($workouts))
                                         <select class="form-select" name="workout_id">
                                             @foreach ($workouts as $workout)
                                                 <option value="{{ $workout->id }}">{{ $workout->name }}</option>

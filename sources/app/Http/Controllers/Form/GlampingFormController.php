@@ -52,7 +52,7 @@ class GlampingFormController extends Controller
         {
             Cache::forget('glamping');
             Cache::forever('glamping', $this->_glampingService->all());
-            return back()->with("success","Данные успешно добавлены!");
+            return redirect()->route('glamping.index')->with("success","Данные успешно добавлены!");
         }
         else
         {
