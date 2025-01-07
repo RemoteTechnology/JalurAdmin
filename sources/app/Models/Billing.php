@@ -20,4 +20,9 @@ class Billing extends Model
         'record_date',
         'payments',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

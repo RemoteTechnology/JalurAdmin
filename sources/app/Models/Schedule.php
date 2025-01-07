@@ -21,4 +21,9 @@ class Schedule extends Model
         'schedule_time_id',
         'date',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

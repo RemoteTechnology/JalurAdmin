@@ -21,4 +21,9 @@ class Glamping extends Model
         'date',
         'time',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

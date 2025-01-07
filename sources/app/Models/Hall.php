@@ -21,4 +21,9 @@ class Hall extends Model
         'start_work_time',
         'end_work_time'
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

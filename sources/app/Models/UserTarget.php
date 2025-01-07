@@ -14,4 +14,9 @@ class UserTarget extends Model
      * @var array<int, string>
      */
     protected $fillable = ['user_id', 'collection'];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

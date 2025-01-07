@@ -20,4 +20,9 @@ class Workout extends Model
         'description',
         'images',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

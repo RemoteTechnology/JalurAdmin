@@ -18,4 +18,9 @@ class Abonement extends Model
         'price',
         'time_of_action'
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

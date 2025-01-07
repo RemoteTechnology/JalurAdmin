@@ -17,4 +17,9 @@ class TypeWorkout extends Model
     protected $fillable = [
         'name',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

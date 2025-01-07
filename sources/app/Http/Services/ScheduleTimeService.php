@@ -21,6 +21,7 @@ class ScheduleTimeService implements ScheduleTimeServiceInterface
     }
     public function delete(int $id): bool|null
     {
-        return ScheduleTime::destroy($id);
+        $model = ScheduleTime::find($id);
+        return $model->delete($id);
     }
 }

@@ -56,6 +56,7 @@ class ScheduleService implements ScheduleServiceInterface
     }
     public function delete(int $id): bool
     {
-        return Schedule::destroy($id);
+        $model = Schedule::find($id);
+        return $model->delete($id);
     }
 }

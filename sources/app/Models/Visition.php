@@ -18,4 +18,9 @@ class Visition extends Model
         'visition_date',
         'status',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

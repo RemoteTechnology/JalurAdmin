@@ -21,4 +21,9 @@ class Record extends Model
         'total_training',
         'remaining_training',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }

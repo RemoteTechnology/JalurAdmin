@@ -25,6 +25,7 @@ class HallService implements HallServiceInterface
     }
     public function delete(int $id): bool
     {
-        return Hall::destroy($id);
+        $model = Hall::find($id);
+        return $model->delete();
     }
 }

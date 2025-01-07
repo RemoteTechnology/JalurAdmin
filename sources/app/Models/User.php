@@ -35,6 +35,11 @@ class User extends Authenticatable
         'password_admin',
     ];
 
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
+
     static function createBearerTocken($user)
     {
         $user->tokens()->delete();

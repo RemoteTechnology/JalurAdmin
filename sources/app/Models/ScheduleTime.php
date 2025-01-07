@@ -16,4 +16,9 @@ class ScheduleTime extends Model
     protected $fillable = [
         'start_time',
     ];
+
+    /**
+     * @var string[]
+     */
+    protected $dates = ['deleted_at'];
 }
