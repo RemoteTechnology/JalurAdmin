@@ -22,6 +22,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     graphviz \
+    libssl-dev \
+    libcurl4-openssl-dev \
     && docker-php-ext-install pdo pdo_pgsql pgsql
 
 
@@ -32,6 +34,16 @@ RUN apt install -y \
         libzip-dev \
         zip \
         && docker-php-ext-install zip
+
+RUN pecl update-channels
+
+RUN git clone https://github.com/tideways/php-xhprof-extension.git /tmp/tideways_xhprof \
+    && cd /tmp/tideways_xhprof \
+    && phpize \
+    && ./configure \
+    && make \
+    && make install \
+    && docker-php-ext-enable tideways_xhprof
 
 RUN groupmod -o -g ${PGID} www-data && \
     usermod -o -u ${PUID} -g www-data www-data
@@ -56,6 +68,8 @@ RUN echo "xdebug.client_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-x
 RUN echo "xdebug.log=/var/log/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.env
 RUN echo "xdebug.idekey = PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.env
 
+RUN mkdir -p /var/www/xhprof \
+    && chown -R www-data:www-data /var/www/xhprof
 
 WORKDIR /var/www/sources
 

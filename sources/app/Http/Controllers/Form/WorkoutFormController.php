@@ -59,7 +59,7 @@ class WorkoutFormController extends Controller
             }
             if ($this->_workoutService->create($workout, $request_files["images"] ? $request_files->file('images') : null)) {
                 Cache::forget('workout');
-                Cache::forever('workout', $this->_workoutService->all());
+                Cache::forever('workout', $this->_workoutService->all('Active'));
             }
         }
         catch (\TypeError)
@@ -75,7 +75,7 @@ class WorkoutFormController extends Controller
         if ($this->_workoutService->update($workout, $request_files["image"] ? $request_files->file('image') : null))
         {
             Cache::forget('workout');
-            Cache::forever('workout', $this->_workoutService->all());
+            Cache::forever('workout', $this->_workoutService->all('Active'));
         }
         return back()->with("success","Данные успешно обновлены!");
     }
@@ -85,7 +85,7 @@ class WorkoutFormController extends Controller
         $workout = $request->validated();
         if ($this->_workoutService->delete($workout["id"])) {
             Cache::forget('workout');
-            Cache::forever('workout', $this->_workoutService->all());
+            Cache::forever('workout', $this->_workoutService->all('Active'));
         }
         return back()->with("success","Данные успешно удалены!");
     }

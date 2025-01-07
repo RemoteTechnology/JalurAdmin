@@ -14,25 +14,25 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
+        '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
-        '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
@@ -54,6 +54,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array (
             'YooKassa\\Validator\\' => 19,
             'YooKassa\\' => 9,
+        ),
+        'X' => 
+        array (
+            'Xhgui\\Profiler\\' => 15,
         ),
         'W' => 
         array (
@@ -188,6 +192,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Bavix\\XHProf\\' => 13,
         ),
         'A' => 
         array (
@@ -211,6 +216,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'YooKassa\\' => 
         array (
             0 => __DIR__ . '/..' . '/yoomoney/yookassa-sdk-php/lib',
+        ),
+        'Xhgui\\Profiler\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/perftools/php-profiler/src',
         ),
         'Whoops\\' => 
         array (
@@ -573,6 +582,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Bavix\\XHProf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bavix/laravel-xhprof/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -618,6 +631,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
+        'App\\Http\\Middleware\\TidewaysMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/TidewaysMiddleware.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
@@ -723,6 +737,12 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Providers\\TypeWorkoutServiceProvider' => __DIR__ . '/../..' . '/app/Providers/TypeWorkoutServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Bavix\\XHProf\\Middleware\\XHProfMiddleware' => __DIR__ . '/..' . '/bavix/laravel-xhprof/src/Middleware/XHProfMiddleware.php',
+        'Bavix\\XHProf\\Providers\\ProviderInterface' => __DIR__ . '/..' . '/bavix/laravel-xhprof/src/Providers/ProviderInterface.php',
+        'Bavix\\XHProf\\Providers\\TidewaysProvider' => __DIR__ . '/..' . '/bavix/laravel-xhprof/src/Providers/TidewaysProvider.php',
+        'Bavix\\XHProf\\Providers\\XHProfProvider' => __DIR__ . '/..' . '/bavix/laravel-xhprof/src/Providers/XHProfProvider.php',
+        'Bavix\\XHProf\\Services\\XHProfService' => __DIR__ . '/..' . '/bavix/laravel-xhprof/src/Services/XHProfService.php',
+        'Bavix\\XHProf\\XHProfServiceProvider' => __DIR__ . '/..' . '/bavix/laravel-xhprof/src/XHProfServiceProvider.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
@@ -6819,6 +6839,28 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'Xhgui\\Profiler\\Config' => __DIR__ . '/..' . '/perftools/php-profiler/src/Config.php',
+        'Xhgui\\Profiler\\Exception\\ProfilerException' => __DIR__ . '/..' . '/perftools/php-profiler/src/Exception/ProfilerException.php',
+        'Xhgui\\Profiler\\Importer' => __DIR__ . '/..' . '/perftools/php-profiler/src/Importer.php',
+        'Xhgui\\Profiler\\ImporterFactory' => __DIR__ . '/..' . '/perftools/php-profiler/src/ImporterFactory.php',
+        'Xhgui\\Profiler\\Profiler' => __DIR__ . '/..' . '/perftools/php-profiler/src/Profiler.php',
+        'Xhgui\\Profiler\\ProfilerFactory' => __DIR__ . '/..' . '/perftools/php-profiler/src/ProfilerFactory.php',
+        'Xhgui\\Profiler\\Profilers\\AbstractProfiler' => __DIR__ . '/..' . '/perftools/php-profiler/src/Profilers/AbstractProfiler.php',
+        'Xhgui\\Profiler\\Profilers\\ProfilerInterface' => __DIR__ . '/..' . '/perftools/php-profiler/src/Profilers/ProfilerInterface.php',
+        'Xhgui\\Profiler\\Profilers\\Tideways' => __DIR__ . '/..' . '/perftools/php-profiler/src/Profilers/Tideways.php',
+        'Xhgui\\Profiler\\Profilers\\TidewaysXHProf' => __DIR__ . '/..' . '/perftools/php-profiler/src/Profilers/TidewaysXHProf.php',
+        'Xhgui\\Profiler\\Profilers\\UProfiler' => __DIR__ . '/..' . '/perftools/php-profiler/src/Profilers/UProfiler.php',
+        'Xhgui\\Profiler\\Profilers\\XHProf' => __DIR__ . '/..' . '/perftools/php-profiler/src/Profilers/XHProf.php',
+        'Xhgui\\Profiler\\ProfilingData' => __DIR__ . '/..' . '/perftools/php-profiler/src/ProfilingData.php',
+        'Xhgui\\Profiler\\ProfilingFlags' => __DIR__ . '/..' . '/perftools/php-profiler/src/ProfilingFlags.php',
+        'Xhgui\\Profiler\\SaverFactory' => __DIR__ . '/..' . '/perftools/php-profiler/src/SaverFactory.php',
+        'Xhgui\\Profiler\\Saver\\AbstractSaver' => __DIR__ . '/..' . '/perftools/php-profiler/src/Saver/AbstractSaver.php',
+        'Xhgui\\Profiler\\Saver\\FileSaver' => __DIR__ . '/..' . '/perftools/php-profiler/src/Saver/FileSaver.php',
+        'Xhgui\\Profiler\\Saver\\MongoSaver' => __DIR__ . '/..' . '/perftools/php-profiler/src/Saver/MongoSaver.php',
+        'Xhgui\\Profiler\\Saver\\PdoSaver' => __DIR__ . '/..' . '/perftools/php-profiler/src/Saver/PdoSaver.php',
+        'Xhgui\\Profiler\\Saver\\SaverInterface' => __DIR__ . '/..' . '/perftools/php-profiler/src/Saver/SaverInterface.php',
+        'Xhgui\\Profiler\\Saver\\StackSaver' => __DIR__ . '/..' . '/perftools/php-profiler/src/Saver/StackSaver.php',
+        'Xhgui\\Profiler\\Saver\\UploadSaver' => __DIR__ . '/..' . '/perftools/php-profiler/src/Saver/UploadSaver.php',
         'YooKassa\\Client' => __DIR__ . '/..' . '/yoomoney/yookassa-sdk-php/lib/Client.php',
         'YooKassa\\Client\\ApiClientInterface' => __DIR__ . '/..' . '/yoomoney/yookassa-sdk-php/lib/Client/ApiClientInterface.php',
         'YooKassa\\Client\\BaseClient' => __DIR__ . '/..' . '/yoomoney/yookassa-sdk-php/lib/Client/BaseClient.php',

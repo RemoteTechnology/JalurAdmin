@@ -10,6 +10,7 @@ return array(
     'Zelenin\\SmsRu\\' => array($vendorDir . '/zelenin/smsru'),
     'YooKassa\\Validator\\' => array($vendorDir . '/yoomoney/yookassa-sdk-validator/src'),
     'YooKassa\\' => array($vendorDir . '/yoomoney/yookassa-sdk-php/lib'),
+    'Xhgui\\Profiler\\' => array($vendorDir . '/perftools/php-profiler/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'TijsVerkoyen\\CssToInlineStyles\\' => array($vendorDir . '/tijsverkoyen/css-to-inline-styles/src'),
@@ -99,5 +100,6 @@ return array(
     'Carbon\\Doctrine\\' => array($vendorDir . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
+    'Bavix\\XHProf\\' => array($vendorDir . '/bavix/laravel-xhprof/src'),
     'App\\' => array($baseDir . '/app', $vendorDir . '/laravel/pint/app'),
 );

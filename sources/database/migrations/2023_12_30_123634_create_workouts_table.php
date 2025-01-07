@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('workouts', function (Blueprint $table) {
             $table->id();
+            $table->enum('status', ['Active', 'Archive'])->default('Active');
             $table->integer('type_workout_id');
             $table->string('name');
             $table->text('description');

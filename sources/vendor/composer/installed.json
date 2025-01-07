@@ -1,6 +1,65 @@
 {
     "packages": [
         {
+            "name": "bavix/laravel-xhprof",
+            "version": "2.0.5",
+            "version_normalized": "2.0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bavix/laravel-xhprof.git",
+                "reference": "cda357615df1dc349c8f465d8fe1048e9ace96b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bavix/laravel-xhprof/zipball/cda357615df1dc349c8f465d8fe1048e9ace96b1",
+                "reference": "cda357615df1dc349c8f465d8fe1048e9ace96b1",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.3|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "php": ">=7.1"
+            },
+            "time": "2024-02-13T15:18:00+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bavix\\XHProf\\XHProfServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Bavix\\XHProf\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Babichev Maxim",
+                    "email": "info@babichev.net"
+                }
+            ],
+            "description": "Quick profiling of your code for Laravel",
+            "keywords": [
+                "code",
+                "laravel",
+                "php",
+                "profiler",
+                "profiling",
+                "xhprof"
+            ],
+            "support": {
+                "issues": "https://github.com/bavix/laravel-xhprof/issues",
+                "source": "https://github.com/bavix/laravel-xhprof/tree/2.0.5"
+            },
+            "install-path": "../bavix/laravel-xhprof"
+        },
+        {
             "name": "brick/math",
             "version": "0.11.0",
             "version_normalized": "0.11.0.0",
@@ -3057,6 +3116,71 @@
                 }
             ],
             "install-path": "../nunomaduro/termwind"
+        },
+        {
+            "name": "perftools/php-profiler",
+            "version": "1.1.2",
+            "version_normalized": "1.1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/perftools/php-profiler.git",
+                "reference": "b5051e96679aa0d6cb3afe9a13a4e6a1fd890fea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/perftools/php-profiler/zipball/b5051e96679aa0d6cb3afe9a13a4e6a1fd890fea",
+                "reference": "b5051e96679aa0d6cb3afe9a13a4e6a1fd890fea",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^5.3.0 || ^7.0 || ^8.0"
+            },
+            "conflict": {
+                "perftools/xhgui-collector": "<1.8"
+            },
+            "require-dev": {
+                "alcaeus/mongo-php-adapter": "^1.1",
+                "perftools/xhgui-collector": "^1.8"
+            },
+            "suggest": {
+                "alcaeus/mongo-php-adapter": "Adapter to provide ext-mongo interface on top of mongo-php-library (PHP>=5.6)",
+                "ext-curl": "cURL extension for upload saver",
+                "ext-mongo": "mongo extension (PHP>=5.3,<7.0)",
+                "ext-mongodb": "mongodb extension (PHP>=5.4)",
+                "ext-tideways": "Use tideways to profile",
+                "ext-uprofiler": "Use uprofiler to profile",
+                "ext-xhprof": "Use xhprof to profile",
+                "perftools/xhgui-collector": "For mongodb or pdo savers"
+            },
+            "time": "2024-04-16T05:42:45+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Xhgui\\Profiler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lauri Piisang",
+                    "email": "lauri.piisang@eesti.ee"
+                },
+                {
+                    "name": "Elan Ruusamäe",
+                    "email": "glen@pld-linux.org"
+                }
+            ],
+            "description": "PHP Profiling based on XHGui",
+            "support": {
+                "issues": "https://github.com/perftools/php-profiler/issues",
+                "source": "https://github.com/perftools/php-profiler/tree/1.1.2"
+            },
+            "install-path": "../perftools/php-profiler"
         },
         {
             "name": "phar-io/manifest",
@@ -9061,6 +9185,7 @@
     ],
     "dev": true,
     "dev-package-names": [
+        "bavix/laravel-xhprof",
         "fakerphp/faker",
         "filp/whoops",
         "hamcrest/hamcrest-php",

@@ -10,7 +10,7 @@ interface WorkoutServiceInterface
 {
     public function create(array $workout, UploadedFile $fileLists): Workout;
     public function show(int $id);
-    public function all(): Collection;
+    public function all(string $status): Collection;
     public function update(array $workout, UploadedFile $fileLists): Workout;
     public function delete(int $id): bool;
 }

@@ -33,7 +33,8 @@
     <li>
         <p>
             <span>Поднять docker:</span><br>
-            <b style="color: #222;">(sudo) docker-compose up --build -d</b>
+            <b style="color: #222;">(sudo) docker-compose up --build -d</b><br>
+            <small>На локалке: (sudo) docker-compose --profile debug up --build -d</small>
         </p>
     </li>
     <br />
@@ -103,14 +104,6 @@
     </p>
 </div>
 <ul>
-    <li>
-        <p>
-            <span>На продакшене запустить крон:</span><br>
-            <b style="color: #222;">(sudo) crontab -e</b><br>
-            <b style="color: #222;">(sudo) 59 23 * * * docker exec -it <CONTAINER ID> sh /var/www/dump/dump.sh</b>
-        </p>
-    </li>
-    <br />
     <li>
         <p>
             <span>Локально можно заполнить базу фейковыми записями:</span><br>

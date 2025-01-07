@@ -10,6 +10,15 @@
         'dev' => true,
     ),
     'versions' => array(
+        'bavix/laravel-xhprof' => array(
+            'pretty_version' => '2.0.5',
+            'version' => '2.0.5.0',
+            'reference' => 'cda357615df1dc349c8f465d8fe1048e9ace96b1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../bavix/laravel-xhprof',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.11.0',
             'version' => '0.11.0.0',
@@ -574,6 +583,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'perftools/php-profiler' => array(
+            'pretty_version' => '1.1.2',
+            'version' => '1.1.2.0',
+            'reference' => 'b5051e96679aa0d6cb3afe9a13a4e6a1fd890fea',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../perftools/php-profiler',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'phar-io/manifest' => array(
             'pretty_version' => '2.0.3',
             'version' => '2.0.3.0',
@@ -766,8 +784,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(

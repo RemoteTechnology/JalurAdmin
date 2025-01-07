@@ -29,9 +29,9 @@ class WorkoutService implements WorkoutServiceInterface
     {
         return Workout::find($id);
     }
-    public function all(): Collection
+    public function all(string $status): Collection
     {
-        return Workout::all();
+        return Workout::all()->where(['status' => $status]);
     }
     public function update(array $workout, UploadedFile|null $fileLists): Workout
     {
@@ -49,6 +49,7 @@ class WorkoutService implements WorkoutServiceInterface
     public function delete(int $id): bool
     {
         $model = $this->show($id);
-        return $model->delete();
+        $model->status = 'Archive';
+        return $model->save();
     }
 }
