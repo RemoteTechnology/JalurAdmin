@@ -5,6 +5,7 @@ namespace App\Http\Services;
 use App\Http\Services\Contracts\WorkoutVisitionServiceInterface;
 use App\Models\Visition;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Carbon;
 
 class WorkoutVisitionService implements WorkoutVisitionServiceInterface
 {
@@ -16,7 +17,7 @@ class WorkoutVisitionService implements WorkoutVisitionServiceInterface
             {
                 $workout_visition = new Visition();
                 $workout_visition->contract_id = $contract_id;
-                $workout_visition->visition_date = $concrete_date;
+                $workout_visition->visition_date = Carbon::createFromFormat('d.m.Y', $concrete_date)->format('Y-m-d');
                 $workout_visition->status = 'Ожидает';
                 $workout_visition->save();
             }

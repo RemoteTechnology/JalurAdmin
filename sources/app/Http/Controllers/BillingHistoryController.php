@@ -71,9 +71,7 @@ class BillingHistoryController extends Controller
                 'visition' => $this->workoutVisitionService->showByContract($record->contract)
             ];
         }
-        echo '<pre>';
-        var_dump($this->userForRecords);
-        echo '</pre>';
+
         return view('billing.index', [
             "title" => "История покупок",
             'records' => $this->userForRecords
