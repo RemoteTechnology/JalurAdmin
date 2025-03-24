@@ -600,6 +600,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AbonementController' => __DIR__ . '/../..' . '/app/Http/Controllers/AbonementController.php',
         'App\\Http\\Controllers\\Api\\AbonementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AbonementController.php',
+        'App\\Http\\Controllers\\Api\\BillingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/BillingController.php',
         'App\\Http\\Controllers\\Api\\HallController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/HallController.php',
         'App\\Http\\Controllers\\Api\\ScheduleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ScheduleController.php',
         'App\\Http\\Controllers\\Api\\ScheduleTimeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ScheduleTimeController.php',
