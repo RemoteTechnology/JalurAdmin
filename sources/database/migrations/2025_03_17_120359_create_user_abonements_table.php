@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('abonements', function (Blueprint $table) {
+        Schema::create('user_abonements', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique();
+            $table->integer('user_id');
+            $table->integer('abonement_id');
             $table->integer('price');
-            $table->integer('time_of_action')->default(1);
-            $table->integer('avaible_workout_count');
+            $table->integer('remaining_workout_count');
+            $table->boolean('expired')->default(false);
             $table->timestamp('created_at');
             $table->timestamp('updated_at');
             $table->timestamp('deleted_at')
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('abonements');
+        Schema::dropIfExists('user_abonements');
     }
 };

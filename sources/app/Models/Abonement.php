@@ -16,7 +16,8 @@ class Abonement extends Model
     protected $fillable = [
         'title',
         'price',
-        'time_of_action'
+        'time_of_action',
+        'avaible_workout_count'
     ];
 
     /**

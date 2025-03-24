@@ -22,9 +22,10 @@ class AbonementCreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'             => ['required'],
-            'price'             => ['required', 'numeric'],
-            'time_of_action'    => ['required', 'numeric'],
+            'title'                 => ['required'],
+            'price'                 => ['required', 'numeric'],
+            'time_of_action'        => ['required', 'numeric'],
+            'avaible_workout_count' => ['required', 'numeric']
         ];
     }
     public function messages(): array

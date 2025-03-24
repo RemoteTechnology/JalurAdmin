@@ -12,6 +12,7 @@ return array(
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AbonementController' => $baseDir . '/app/Http/Controllers/AbonementController.php',
     'App\\Http\\Controllers\\Api\\AbonementController' => $baseDir . '/app/Http/Controllers/Api/AbonementController.php',
+    'App\\Http\\Controllers\\Api\\BillingController' => $baseDir . '/app/Http/Controllers/Api/BillingController.php',
     'App\\Http\\Controllers\\Api\\HallController' => $baseDir . '/app/Http/Controllers/Api/HallController.php',
     'App\\Http\\Controllers\\Api\\ScheduleController' => $baseDir . '/app/Http/Controllers/Api/ScheduleController.php',
     'App\\Http\\Controllers\\Api\\ScheduleTimeController' => $baseDir . '/app/Http/Controllers/Api/ScheduleTimeController.php',

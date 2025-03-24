@@ -26,6 +26,7 @@ class AbonementUpdateRequest extends FormRequest
             'title'             => ['required'],
             'price'             => ['required', 'numeric'],
             'time_of_action'    => ['required', 'numeric'],
+            'avaible_workout_count' => ['required', 'numeric']
         ];
     }
 
