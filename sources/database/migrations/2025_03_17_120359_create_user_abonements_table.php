@@ -22,6 +22,8 @@ return new class extends Migration
             $table->timestamp('updated_at');
             $table->timestamp('deleted_at')
                 ->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('abonement_id')->references('id')->on('abonements')->cascadeOnDelete();
         });
     }
 
