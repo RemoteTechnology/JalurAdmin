@@ -57,9 +57,51 @@ class AbonementController extends Controller
         )->setStatusCode(201);
     }
     
-    public function update()
+    public function update(Request $request)
     {
+        $validator = Validator::make($request->json()->all(), [
+            'abonement_id' => ['required', 'integer', 'exists:abonements,id'],
+            'title'                 => [],
+            'price'                 => ['numeric'],
+            'time_of_action'        => ['integer'],
+            'avaible_workout_count' => ['integer']
+        ], [
+            'abonement_id.required' => 'Поле обязательно для заполнения',
+            'abonement_id.integer' => 'Значение должно быть целым числом',
+            'abonement_id.exists' => 'Абонемент с таким идентификатором не существует',
+            'price.numeric' => 'Значение должно быть числом',
+            'time_of_action.integer' => 'Значение должно быть целым числом',
+            'avaible_workout_count.integer' => 'Значение должно быть целым числом'
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json($validator->errors())->setStatusCode(400);
+        }
+
+        return response()->json(
+            new AbonementResource($this->_abonementService->update($validator->validated()))
+        )->setStatusCode(200);
+    }
+
+    public function delete(Request $request)
+    {
+        $validator = Validator::make($request->json()->all(), [
+            'abonement_id' => ['required', 'integer', 'exists:abonements,id']
+        ], [
+            'abonement_id.required' => 'Поле обязательно для заполнения',
+            'abonement_id.integer' => 'Значение должно быть целым числом',
+            'abonement_id.exists' => 'Абонемент с таким идентификатором не существует'
+        ]);
+
+        if($validator->fails())
+        {
+            return response()->json($validator->errors())->setStatusCode(400);
+        }
+
+        $this->_abonementService->delete($validator->validated());
         
+        return response(status: 200);
     }
 }
  

@@ -8,7 +8,7 @@ use App\Models\UserAbonement;
 use App\Models\Record;
 use Illuminate\Database\Eloquent\Collection;
 
-    class AbonementService implements AbonementServiceInterface
+class AbonementService 
 {
 
     public function create(array $abonement): Abonement
@@ -26,14 +26,15 @@ use Illuminate\Database\Eloquent\Collection;
         return Abonement::all();
     }
 
-    public function update(Abonement $context, array $request): Abonement
+    public function update(array $request): Abonement
     {
+        $context = Abonement::find($request['abonement_id']);
         $context->title = key_exists('title', $request) && !is_null($request['title']) ? $request['title'] : $context->title;
         $context->price = key_exists('price', $request) &&
             !is_null($request['price']) &&
             $request['price'] > 0 ? $request['price'] : $context->price;
-        $context->time_of_action = key_exists('time_of_action', $request) ? $request['time_of_action'] : $context->time_of_action;
-        $context->avaible_workout_count = key_exists('avaible_workout_count', $request) ? $request['avaible_workout_count'] : $context->avaible_workout_count;
+        $context->time_of_action = key_exists('time_of_action', $request) && !is_null($request['time_of_action']) ? $request['time_of_action'] : $context->time_of_action;
+        $context->avaible_workout_count = key_exists('avaible_workout_count', $request) && !is_null($request['avaible_workout_count']) ? $request['avaible_workout_count'] : $context->avaible_workout_count;
         $context->save();
         return $context;
     }
@@ -59,8 +60,8 @@ use Illuminate\Database\Eloquent\Collection;
         return true;
     }
 
-    public function delete(Abonement $context): bool
+    public function delete(array $request)
     {
-        return $context->delete();
+        Abonement::find($request['abonement_id'])->delete();
     }
 }

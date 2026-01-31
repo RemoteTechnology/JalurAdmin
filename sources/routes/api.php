@@ -45,6 +45,11 @@ Route::prefix('user')->group(function () {
         Route::put('update', [UserController::class, 'update'])->name('api.user.update');
         Route::get('show/{id}', [UserController::class, 'show'])->name('api.user.show');
         Route::get('show/role/{role}', [UserController::class, 'findByRole'])->name('api.user.show.by.role');
+
+        Route::prefix('event')->group(function () {
+            Route::put('writeoff', [UserEventController::class, 'writeOff']);
+            Route::put('return', [UserEventController::class, 'return']);
+        });
     });
 });
 Route::middleware('auth:sanctum')->group(function () {
@@ -85,16 +90,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', [AbonementController::class, 'all'])->name('api.abonement.index');
         Route::get('/show/{id}', [AbonementController::class, 'show'])->name('api.abonement.show');
         Route::post('/create', [AbonementController::class, 'create'])->name('api.abonement.create');
-        Route::put('/update/{id}', [AbonementController::class, 'update'])->name('api.abonement.update');
+        Route::put('/update', [AbonementController::class, 'update'])->name('api.abonement.update');
+        Route::delete('/delete', [AbonementController::class, 'delete']);
         Route::post('/sell', [AbonementSellController::class, 'create'])->name('api.abonement.sell.create');
     });
-    
-    Route::prefix('user')->group(function () {
-        Route::put('/event/writeoff', [UserEventController::class, 'writeOff']);
-        Route::put('/event/return', [UserEventController::class, 'return']);
-    });
-    
 });
+
 
 
 
